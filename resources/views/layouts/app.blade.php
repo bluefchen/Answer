@@ -7,14 +7,19 @@
 
     <title>Laravel</title>
 
-    <!-- Fonts -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700">
+    <!-- Loading Bootstrap -->
+    <link href="{{URL::asset('assets/dist/css/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
 
-    <!-- Styles -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
+    <!-- Loading Flat UI -->
+    <link href="{{URL::asset('assets/dist/css/flat-ui.css')}}" rel="stylesheet">
 
+    <link rel="shortcut icon" href="{{URL::asset('assets/dist/img/favicon.ico')}}">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
+    <!--[if lt IE 9]>
+    <script src="{{URL::asset('assets/dist/js/vendor/html5shiv.js')}}"></script>
+    <script src="{{URL::asset('assets/dist/js/vendor/respond.min.js')}}"></script>
+    <![endif]-->
     <style>
         body {
             font-family: 'Lato';
@@ -40,14 +45,14 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    Laravel
+                    答题王
                 </a>
             </div>
 
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/home') }}">Home</a></li>
+                    <li><a href="{{ url('/test') }}">Test</a></li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->

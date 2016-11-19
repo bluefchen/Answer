@@ -1,4 +1,4 @@
-# Laravel PHP Framework
+# PHP简单答题系统
 
 [![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
 [![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
@@ -6,22 +6,24 @@
 [![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
 [![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
+基于Laravel框架设计的一个PHP简单答题系统，可以登入登出、从数据库中读取题目进行测试，提交后会对答题情况做一个反馈。
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+## System Requirements
 
-## Official Documentation
+Laravel > 5.2.*
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
+## demo
 
-## Contributing
+![](http://i.imgur.com/ZGvPccA.png)
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
 
-## Security Vulnerabilities
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+![](http://i.imgur.com/pUdyBOR.png)
+
+![](http://i.imgur.com/A171mA0.png)
+
+![](http://i.imgur.com/J5e08W3.png)
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+本系统基于 [MIT 协议](http://opensource.org/licenses/MIT).

@@ -17,4 +17,7 @@ Route::get('/', function () {
 
 Route::auth();
 
-Route::get('/home', 'HomeController@index');
+Route::get('/test', 'TestController@index');
+Route::post('/test/next/{id}', 'TestController@next');
+Route::get('/test/judge', 'TestController@judge');
+Route::get('/test/{id}', 'TestController@show');
