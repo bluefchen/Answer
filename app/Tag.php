@@ -4,8 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Test extends Model
+class Tag extends Model
 {
     //
-    protected $fillable=['useranswer'];
 }

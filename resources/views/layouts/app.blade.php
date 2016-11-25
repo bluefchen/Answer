@@ -83,5 +83,48 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js" integrity="sha384-I6F5OKECLVtK/BL+8iSLDEHowSAfUo76ZL9+kGAgTRdiByINKJaqTPH/QVNS1VDb" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="{{URL::asset('assets/dist/js/vendor/jquery.min.js')}}"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="{{URL::asset('assets/dist/js/flat-ui.min.js')}}"></script>
+
+    <script src="{{URL::asset('assets/dist/js/application.js')}}"></script>
+    <script>
+        $('button:not([type="submit"])').on('click', function (e) {
+            var $this = $(this);
+
+            if (!!$this.attr('data-radiocheck-check')) {
+                var el = $this.attr('data-radiocheck-check');
+                $(el).radiocheck('check');
+            } else if (!!$this.attr('data-radiocheck-uncheck')) {
+                var el = $this.attr('data-radiocheck-uncheck');
+                $(el).radiocheck('uncheck');
+            } else if (!!$this.attr('data-radiocheck-toggle')) {
+                var el = $this.attr('data-radiocheck-toggle');
+                $(el).radiocheck('toggle');
+            } else if (!!$this.attr('data-radiocheck-indeterminate')) {
+                var el = $this.attr('data-radiocheck-indeterminate');
+                $(el).radiocheck('indeterminate');
+            } else if (!!$this.attr('data-radiocheck-determinate')) {
+                var el = $this.attr('data-radiocheck-determinate');
+                $(el).radiocheck('determinate');
+            } else if (!!$this.attr('data-radiocheck-disable')) {
+                var el = $this.attr('data-radiocheck-disable');
+                $(el).radiocheck('disable');
+            } else if (!!$this.attr('data-radiocheck-enable')) {
+                var el = $this.attr('data-radiocheck-enable');
+                $(el).radiocheck('enable');
+            } else if (!!$this.attr('data-radiocheck-destroy')) {
+                var el = $this.attr('data-radiocheck-destroy');
+                $(el).radiocheck('destroy');
+            } else if (!!$this.attr('data-radiocheck-init')) {
+                var el = $this.attr('data-radiocheck-init');
+                $(el).radiocheck();
+            }
+
+            e.preventDefault();
+        });
+
+    </script>
 </body>
 </html>

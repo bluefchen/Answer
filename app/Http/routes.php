@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 Route::auth();
-
+Route::get('/admin','AdminController@index');
 Route::get('/test', 'TestController@index');
 Route::post('/test/next/{id}', 'TestController@next');
 Route::get('/test/judge', 'TestController@judge');

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use App\Test;
+use App\Question;
 class TestController extends Controller
 {
     //
@@ -20,14 +20,14 @@ class TestController extends Controller
     }
     public function show($id)
     {
-        $test=Test::find($id);
+        $test=Question::find($id);
         return view('test.show',array_merge($test->toArray(),['total'=>($this->TotalNumber)]));
     }
 
    public function next(Request $request,$id)
    {
 
-       $test=Test::find($id);
+       $test=Question::find($id);
        $test->useranswer=$request->get('answer');
        $test->save();
        if($id==$this->TotalNumber)   //达到最后一条了
@@ -41,7 +41,7 @@ class TestController extends Controller
     public function judge()
     {
         $total=$this->TotalNumber;
-        $tests=Test::all();
+        $tests=Question::all();
         $num=0;
         foreach($tests as $test){
             if($test->answer==$test->useranswer)
