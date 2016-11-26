@@ -14,7 +14,7 @@
     <link href="{{URL::asset('assets/dist/css/flat-ui.css')}}" rel="stylesheet">
 
     <link rel="shortcut icon" href="{{URL::asset('assets/dist/img/favicon.ico')}}">
-
+    <link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css" rel="stylesheet" />
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
     <!--[if lt IE 9]>
     <script src="{{URL::asset('assets/dist/js/vendor/html5shiv.js')}}"></script>
@@ -89,6 +89,7 @@
     <script src="{{URL::asset('assets/dist/js/flat-ui.min.js')}}"></script>
 
     <script src="{{URL::asset('assets/dist/js/application.js')}}"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js"></script>
     <script>
         $('button:not([type="submit"])').on('click', function (e) {
             var $this = $(this);
@@ -126,5 +127,6 @@
         });
 
     </script>
+@yield('footer')
 </body>
 </html>
