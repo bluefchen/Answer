@@ -27,13 +27,13 @@
                         </div>
                     </div>
                 @endif
-                <div class="row">
+                <div class="row" style="height:250px;">
                     <div class="col-md-4">
                         <h2 class="text-center">Title:</h2>
                     </div>
                     <div class="col-md-8">
-                        <p class="lead " style="position: absolute;OVERFLOW: auto; CURSOR: default;top:42px;">
-                            {{$question->title}}
+                        <p class="lead " style="position: absolute;height:200px; OVERFLOW: scroll; CURSOR: default;top:42px;">
+                            {!! nl2br($question->title) !!}
                         </p>
                     </div>
                 </div>

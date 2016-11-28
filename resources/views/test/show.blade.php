@@ -4,7 +4,7 @@
     <div class="container">
         <div class="jumbotron">
             <h1>第{{$id}}题</h1>
-            <p>{{$title}}</p>
+            <p>{!! nl2br($title)!!}</p>
 
             <form role="form" method="post" action={{ url('/test/next') }}/{{$id}}>
             {!! csrf_field() !!}
