@@ -10,7 +10,7 @@
                         题目列表
                         <a href="/admin/question/create" class="btn btn-lg" style="padding:0px 4px;font-size:40px">
                             <span class="glyphicon glyphicon-plus"
-                                  style="position: absolute;top:40px; left: 260px;right: 0px;"></span>
+                                  style="position: absolute;top:40px; left: 450px;right: 0px;"></span>
                         </a>
                     </h2>
                 </div>
@@ -32,7 +32,7 @@
                                             <a href="/admin/question/{{$question->id}}/edit" class="btn btn-sm"
                                                style="padding:0px 4px;font-size:20px;">
                                                 <span class="glyphicon glyphicon-pencil "
-                                                      style="position: absolute;OVERFLOW: auto; CURSOR: default;left: 260px;right: 0px;"></span>
+                                                      style="position: absolute;OVERFLOW: auto; CURSOR: default;left: 450px;right: 0px;"></span>
                                             </a>
                                         </a>
                                     </h4>

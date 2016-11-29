@@ -17,4 +17,14 @@ class Question extends Model
     {
         return $this->belongsToMany('App\Tag');
     }
+
+    /**
+     * 返回问题对应的测试
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function tests()
+    {
+        return $this->belongsToMany('App\Test');
+    }
 }

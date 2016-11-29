@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
-
+use App\Test;
 class User extends Authenticatable
 {
     /**
@@ -23,4 +23,19 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+
+    /**
+     * 获取用户对应的测试
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function tests()
+    {
+        return $this->hasMany('Test');
+    }
+
+
+
+
 }

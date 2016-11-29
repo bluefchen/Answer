@@ -41,8 +41,8 @@ class QuestionController extends Controller
     public function store(Request $request)
     {
         $question = Question::create($request->except(['tag_list']));
-        if (count($question->tags) != 0)
-            $question->tags()->sync($request->input('tag_list'));
+       // if (count($question->tags) != 0)
+        $question->tags()->sync($request->input('tag_list'));
         flash()->success("问题发布成功");
         return redirect('/admin');
     }

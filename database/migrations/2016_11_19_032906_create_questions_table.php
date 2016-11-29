@@ -20,7 +20,6 @@ class CreateQuestionsTable extends Migration
             $table->string('optionC');
             $table->string('optionD');
             $table->string('answer');
-            $table->string('useranswer')->nullable();
             $table->timestamps();
         });
     }
