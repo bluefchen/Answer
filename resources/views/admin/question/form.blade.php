@@ -1,53 +1,45 @@
-
 <div class="form-group">
-    {!! Form::label('Question','Question',['class'=>'col-lg-2 control-label lead'])!!}
+    {!! Form::label('title','Question',['class'=>'col-lg-2 control-label lead']) !!}
     <div class="col-lg-10">
-        {!! Form::textarea('title',null,['class'=>'form-control col-lg-10','required'=>'required','rows'=>'3']) !!}
+        {!! Form::textarea('title',null,['class'=>'form-control',"rows"=>"3",'required'=>'required']) !!}
     </div>
 </div>
 <div class="form-group">
-        {!! Form::label('optionA','A',['class'=>'col-lg-2 control-label lead'])!!}
+    {!! Form::label('optionA','A',['class'=>'col-lg-2 control-label lead']) !!}
     <div class="col-lg-10">
-        {!! Form::text('optionA',null,['class'=>'form-control','required'=>'required']) !!}
-    </div>
-</div>
-
-
-<div class="form-group">
-    <div class="col-lg-2">
-        {!! Form::label('optionB','B',['class'=>'col-lg-2 control-label lead'])!!}
-    </div>
-
-    <div class="col-lg-10">
-        {!! Form::text('optionB',null,['class'=>'form-control','required'=>'required']) !!}
-    </div>
-</div>
-
-
-<div class="form-group">
-    {!! Form::label('optionC','C',['class'=>'col-lg-2 control-label lead'])!!}
-    <div class="col-lg-10">
-        {!! Form::text('optionC',null,['class'=>'form-control','required'=>'required']) !!}
+        {!! Form::text('optionA',null,['class'=>'form-control',"required"=>"required"]) !!}
     </div>
 </div>
 <div class="form-group">
-    {!!!Form::label('optionD','D',['class'=>'col-lg-2 control-label lead'])!!}
+    {!! Form::label('optionB','B',['class'=>'col-lg-2 control-label lead']) !!}
     <div class="col-lg-10">
-        {!! Form::text('optionD',null,['class'=>'form-control','required'=>'required']) !!}
+        {!! Form::text('optionB',null,['class'=>'form-control',"required"=>"required"]) !!}
     </div>
 </div>
 <div class="form-group">
-    <label class="col-lg-2 control-label lead">答案</label>
+    {!! Form::label('optionC','C',['class'=>'col-lg-2 control-label lead']) !!}
     <div class="col-lg-10">
-        {!! Form::text('text',null,['class'=>'form-control','required'=>'required']) !!}
+        {!! Form::text('optionC',null,['class'=>'form-control',"required"=>"required"]) !!}
     </div>
 </div>
 <div class="form-group">
-    <label class="col-lg-2 control-label lead">Tag</label>
+    {!! Form::label('optionD','D',['class'=>'col-lg-2 control-label lead']) !!}
     <div class="col-lg-10">
-        {!! Form::select('tag_list[]', $tag_list, null, ['id'=>'tag_list','class' => ' form-control  bg-primary', 'multiple','required'=>'required']) !!}
+        {!! Form::text('optionD',null,['class'=>'form-control',"required"=>"required"]) !!}
     </div>
 </div>
 <div class="form-group">
-    {!! Form::submit('$submitButton', ['class' => 'btn btn-primary form-control']) !!}
+    {!! Form::label('answer','答案',['class'=>'col-lg-2 control-label lead']) !!}
+    <div class="col-lg-10">
+        {!! Form::text('answer',null,['class'=>'form-control',"required"=>"required"]) !!}
+    </div>
+</div>
+<div class="form-group">
+    {!! Form::label('Tag','Tag',['class'=>'col-lg-2 control-label lead']) !!}
+    <div class="col-lg-10">
+        {!! Form::select('tag_list[]', $tag_list, 1, ['id'=>'tag_list','class' => 'form-control bg-primary', 'multiple']) !!}
+    </div>
+</div>
+<div class="form-group">
+    {!! Form::submit($submitButton, ['class' => 'btn btn-primary form-control']) !!}
 </div>

@@ -6,24 +6,13 @@
                 <h1>Wirte a New Question</h1>
                 <hr/>
 
-
-                {!!  Form::model($question,['method'=>'PATCH','url'=>"/admin/question/$question->id"])!!}
-
+                {!!  Form::model($question,['method'=>'PATCH','url'=>"/admin/question/$question->id",'class'=>'form-horizontal'])!!}
                 @include('admin.question.form',['submitButton'=>'Update Question'])
                 {!! Form::close()!!}
-                @if ($errors->any())
-                    <div class="alert alert-danger">
-                        @foreach($errors->all() as $error)
-                            <p>{{ $error }}</p>
-                        @endforeach
-                    </div>
-                @endif
+                @include('errors.list')
             </div>
         </div>
     </div>
-
-
-
 
 
 @endsection

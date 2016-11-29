@@ -77,6 +77,7 @@
         </div>
     </nav>
 
+    @include('flash::message')
     @yield('content')
 
     <!-- JavaScripts -->
@@ -126,6 +127,13 @@
             e.preventDefault();
         });
 
+    </script>
+    <script type="text/javascript">
+        //modal框样式
+        $('#flash-overlay-modal').modal();
+        //或者普通样式
+
+        $('div.alert').not('.alert-important').delay(3000).slideUp(300);
     </script>
 @yield('footer')
 </body>

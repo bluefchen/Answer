@@ -12,12 +12,8 @@
             </div>
         </div>
     </div>
-
-
-
-
-
 @endsection
+
 @section('footer')
     <script type="text/javascript">
         $('#tag_list').select2();

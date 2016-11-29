@@ -13,13 +13,21 @@ class QuestionController extends Controller
 
 
     /**
+     * QuestionController constructor.
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('admin');
+    }
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function create()
     {
-        //
         $tag_list = Tag::lists('name', 'id');
         return view('admin.question.create', compact('tag_list'));
     }
@@ -35,6 +43,7 @@ class QuestionController extends Controller
         $question = Question::create($request->except(['tag_list']));
         if (count($question->tags) != 0)
             $question->tags()->sync($request->input('tag_list'));
+        flash()->success("问题发布成功");
         return redirect('/admin');
     }
 
@@ -63,7 +72,7 @@ class QuestionController extends Controller
         //
         $question = Question::findOrFail($id);
         $tag_list = Tag::lists('name', 'id');
-        return view('admin.question.edit', compact('question','tag_list'));
+        return view('admin.question.edit', compact('question', 'tag_list'));
     }
 
     /**
@@ -75,11 +84,10 @@ class QuestionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
         $question = Question::findOrFail($id);
         $question->update($request->except(['tags']));
-       // if (count($question->tags) != 0)
-            $question->tags()->sync($request->input('tag_list'));
+        $question->tags()->sync($request->input('tag_list'));
+        flash()->overlay("问题修改成功");
         return redirect('/admin');
     }
 
@@ -91,13 +99,11 @@ class QuestionController extends Controller
     public function delete(Request $request)
     {
 
-        $questionids=$request->get("question_id");
-     
-        foreach($questionids as $id)
-        {
+        $questionids = $request->get("question_id");
+        foreach ($questionids as $id) {
             Question::find($id)->delete();
-
         }
+        flash()->success("问题删除成功");
         return redirect()->back()->withInput()->withErrors('删除成功！');
     }
 
