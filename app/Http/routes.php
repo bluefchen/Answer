@@ -29,3 +29,5 @@ Route::get('/test/{test_id}/judge', 'TestController@judge');
 Route::get('/test/{test_id}/details', 'TestController@detail');
 Route::get('/test/{test_id}/alldetails', 'TestController@allDetail');
 Route::get('/test/{test_id}/{id}', 'TestController@show');
+
+Route::get('/history','HistoryController@index');

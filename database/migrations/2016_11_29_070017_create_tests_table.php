@@ -17,7 +17,7 @@ class CreateTestsTable extends Migration
             $table->timestamps();
             $table->integer('totalnumber')->default(5);
             $table->integer('testtype')->default(0);
-            $table->string('point');
+            $table->integer('point')->default(-1);
             $table->integer('user_id');
             $table->json('questionids');
             $table->json('useranswer');

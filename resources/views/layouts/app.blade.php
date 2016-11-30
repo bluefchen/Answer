@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Laravel</title>
+    <title>PHP之路</title>
 
     <!-- Loading Bootstrap -->
     <link href="{{URL::asset('assets/dist/css/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
@@ -45,7 +45,7 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    答题王
+                    PHP之路
                 </a>
             </div>
 
@@ -53,6 +53,7 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
                     <li><a href="{{ url('/test') }}">Test</a></li>
+                    <li><a href="{{ url('/history') }}">History</a></li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
