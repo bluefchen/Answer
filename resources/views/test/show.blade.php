@@ -3,11 +3,12 @@
 @section('content')
     <div class="container">
         <div class="jumbotron">
-            <h1>第{{$id}}题</h1>
+            <h1>第{{$question_id}}题</h1>
             <p>{!! nl2br($title)!!}</p>
 
-            <form role="form" method="post" action={{ url('/test/next') }}/{{$id}}>
-            {!! csrf_field() !!}
+
+            {!! Form::open(['url' => "/test/$test_id/next/$question_id"]) !!}
+
                 <div class="form-group">
                     <label class="radio ">
                         <input type="radio" data-toggle="radio" name="answer"  value="A" data-radiocheck-toggle="radio" >
@@ -28,13 +29,13 @@
 
                 </div>
                 <button type="submit" class="btn btn-sm btn-primary" name="submit" >
-                    @if($id!=$total)
+                    @if($question_id!=$total)
                         NEXT
                         @else
                         SUBMIT
                         @endif
                 </button>
-            </form>
+            {!! Form::close() !!}
 
 
 

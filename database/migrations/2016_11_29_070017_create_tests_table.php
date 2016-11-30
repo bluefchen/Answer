@@ -15,11 +15,12 @@ class CreateTestsTable extends Migration
         Schema::create('tests', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
+            $table->integer('totalnumber')->default(5);
+            $table->integer('testtype')->default(0);
             $table->string('point');
             $table->integer('user_id');
-            $table->json('answer');
-            $table->json('judge');
-
+            $table->json('questionids');
+            $table->json('useranswer');
 
         });
 

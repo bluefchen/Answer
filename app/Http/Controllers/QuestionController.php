@@ -87,7 +87,7 @@ class QuestionController extends Controller
         $question = Question::findOrFail($id);
         $question->update($request->except(['tags']));
         $question->tags()->sync($request->input('tag_list'));
-        flash()->overlay("问题修改成功");
+        flash()->success("问题修改成功");
         return redirect('/admin');
     }
 

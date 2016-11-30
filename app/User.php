@@ -32,7 +32,7 @@ class User extends Authenticatable
      */
     public function tests()
     {
-        return $this->hasMany('Test');
+        return $this->hasMany('App\Test');
     }
 
 

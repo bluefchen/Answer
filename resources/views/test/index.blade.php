@@ -5,10 +5,21 @@
         <div class="jumbotron">
             <h1>测试</h1>
             <p>准备好了么~开始答题吧！</p>
-            <p>
-                <a class="btn btn-lg btn-primary" href={{ url('/test/1') }} role="button">START</a>
-            </p>
+            {!! Form::open(['url' => '/test']) !!}
+            <div class="row form-horizontal">
+                {!! Form::label('totalnumber','请选择题量：',['class'=>'col-lg-3 control-label lead']) !!}
+                <div class="col-lg-2" >
+                    {!! Form::select('totalnumber', [5=>5,10=>10,20=>20], 0, ['id'=>'totalnumber','class' => 'form-control']) !!}
+                </div>
 
+                {!! Form::label('testtype','请选择类型：',['class'=>'col-lg-3 control-label lead']) !!}
+                <div class="col-lg-2" >
+                    {!! Form::select('testtype', ["随机","顺序"], 0, ['id'=>'testtype','class' => 'form-control']) !!}
+                </div>
+            </div>
+            <br/>
+            {!! Form::submit('START', ['class' => 'btn btn-primary form-control']) !!}
+            {!! Form::close() !!}
         </div>
     </div>
 @endsection
