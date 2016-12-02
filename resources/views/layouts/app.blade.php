@@ -15,6 +15,9 @@
 
     <link rel="shortcut icon" href="{{URL::asset('assets/dist/img/favicon.ico')}}">
     <link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css" rel="stylesheet" />
+
+    <!--导入代码高亮：highlight.css-->
+    <link href="{{URL::asset('assets/dist/styles/atelier-plateau-light.css')}}" rel="stylesheet">
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
     <!--[if lt IE 9]>
     <script src="{{URL::asset('assets/dist/js/vendor/html5shiv.js')}}"></script>
@@ -30,7 +33,7 @@
         }
     </style>
 </head>
-<body id="app-layout">
+<body id="app-layout" onload="prettyPrint()">
     <nav class="navbar navbar-default navbar-static-top">
         <div class="container">
             <div class="navbar-header">
@@ -92,6 +95,9 @@
 
     <script src="{{URL::asset('assets/dist/js/application.js')}}"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js"></script>
+
+    <script src="http://cdn.bootcss.com/highlight.js/8.0/highlight.min.js"></script>
+
     <script>
         $('button:not([type="submit"])').on('click', function (e) {
             var $this = $(this);
@@ -136,6 +142,8 @@
 
         $('div.alert').not('.alert-important').delay(3000).slideUp(300);
     </script>
-@yield('footer')
+
+    <script >hljs.initHighlightingOnLoad();</script>
+    @yield('footer')
 </body>
 </html>

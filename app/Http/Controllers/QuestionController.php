@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Tag;
+use Parsedown;
 
 class QuestionController extends Controller
 {
@@ -57,8 +58,9 @@ class QuestionController extends Controller
     {
         //
         $question = Question::find($id);
+        $parsedown = new Parsedown();
         $tags = $question->tags->lists('name');
-        return view('admin.question.show', compact('question', 'tags'));
+        return view('admin.question.show', compact('question', 'tags','parsedown'));
     }
 
     /**
@@ -106,6 +108,26 @@ class QuestionController extends Controller
         }
         flash()->success("问题删除成功");
         return redirect()->back()->withInput()->withErrors('删除成功！');
+    }
+    
+    
+    public function prevshow($id)
+    {
+        if($id==1){
+            flash()->success("已经是第一题");
+            return redirect()->back();
+        }
+        
+    }
+
+    public function nextshow($id)
+    {
+        $lastid=Question::orderBy('id', 'desc')->first()->id;
+        if($id==$lastid){
+            flash()->success("已经是最后一题");
+            return redirect()->back();
+        }
+
     }
 
 }
