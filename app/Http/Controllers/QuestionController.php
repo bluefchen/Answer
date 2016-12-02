@@ -72,7 +72,8 @@ class QuestionController extends Controller
         //
         $question = Question::findOrFail($id);
         $tag_list = Tag::lists('name', 'id');
-        return view('admin.question.edit', compact('question', 'tag_list'));
+        $tag=$question->tags()->lists('id')->toArray();
+        return view('admin.question.edit', compact('question', 'tag_list','tag'));
     }
 
     /**
