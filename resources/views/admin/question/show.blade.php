@@ -6,16 +6,19 @@
 
                 <h2>
 
-                    ID: {{$question->id}}
+                    ID:
                     <a class="btn btn-lg" href="/admin/question/prevshow/{{$question->id}}"
                        style="padding:0px 4px;font-size:40px">
                         <span class="glyphicon glyphicon-arrow-left text-warning"
-                              style="position: absolute;top:40px; left: 200px;"></span>
+                              style="position: relative; left: 20px"></span>
                     </a>
+                    &nbsp;
+                    {{$question->id}}
+
                     <a class="btn btn-lg" href="/admin/question/nextshow/{{$question->id}}"
                        style="padding:0px 4px;font-size:40px">
-                        <span class="glyphicon glyphicon-arrow-right text-warning"
-                              style="position: absolute;top:40px; left: 300px;"></span>
+                        <span class="glyphicon glyphicon-arrow-right text-info"
+                              style="position: relative; left: 10px;"></span>
                     </a>
                     <a class="btn btn-lg" href="/admin/question/{{$question->id}}/edit"
                        style="padding:0px 4px;font-size:40px">
@@ -30,7 +33,7 @@
                             <h2 class="text-center">Tags:</h2>
                         </div>
                         <div class="col-md-8">
-                            <p class="lead" style="position: absolute;OVERFLOW: auto; CURSOR: default;top:30px;">
+                            <p class="lead" style="position: absolute;OVERFLOW: auto; CURSOR: default;top:50px;">
                                 @foreach($tags as $tag)
                                     {{$tag}}.
                                     &nbsp;
@@ -39,12 +42,12 @@
                         </div>
                     </div>
                 @endif
-                <div class="row" style="height:250px;">
+                <div class="row" >
                     <div class="col-md-4">
                         <h2 class="text-center">Title:</h2>
                     </div>
-                    <div class="col-md-8 ">
-                        <p class="lead " style="position: absolute;height:200px; OVERFLOW: auto; CURSOR: default;top:42px;">
+                    <div class="col-md-8 " >
+                        <p class="lead ">
                             {!! $parsedown->text($question->title) !!}
                         </p>
 
@@ -100,6 +103,17 @@
                     <div class="col-md-8">
                         <p class="lead" style="position: absolute;OVERFLOW: auto; CURSOR: default;top:30px;">
                             {{$question->answer}}
+                        </p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <h3 class="text-center">解析:</h3>
+                    </div>
+                    <div class="col-md-8">
+                        <p class="lead" style="position: absolute;OVERFLOW: auto; CURSOR: default;top:30px;">
+                            {!! $parsedown->text($question->parse) !!}
                         </p>
                     </div>
                 </div>

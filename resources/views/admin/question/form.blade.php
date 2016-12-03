@@ -35,6 +35,12 @@
     </div>
 </div>
 <div class="form-group">
+    {!! Form::label('parse','解析',['class'=>'col-lg-2 control-label lead']) !!}
+    <div class="col-lg-10">
+        {!! Form::textarea('parse',null,['class'=>'form-control',"rows"=>"3"]) !!}
+    </div>
+</div>
+<div class="form-group">
     {!! Form::label('Tag','Tag',['class'=>'col-lg-2 control-label lead']) !!}
     <div class="col-lg-10">
         {!! Form::select('tag_list[]', $tag_list, isset($tag)?$tag:1, ['id'=>'tag_list','class' => 'form-control bg-primary', 'multiple']) !!}
