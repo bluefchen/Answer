@@ -55,47 +55,20 @@
 
                 </div>
                 <p></p>
-                <div class="row">
-                    <div class="col-md-4">
-                        <h3 class="text-center">A:</h3>
+                @foreach(explode("\r\n",$question->options) as $option)
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h3 class="text-center">{{substr($option,0,2)}}</h3>
+                        </div>
+                        <div class="col-md-8">
+                            <p class="lead" style="position: absolute;OVERFLOW: auto; CURSOR: default;top:30px;">
+                                {{substr($option,2)}}
+                            </p>
+                        </div>
                     </div>
-                    <div class="col-md-8">
-                        <p class="lead" style="position: absolute;OVERFLOW: auto; CURSOR: default;top:30px;">
-                            {{$question->optionA}}
-                        </p>
-                    </div>
-                </div>
 
-                <div class="row">
-                    <div class="col-md-4">
-                        <h3 class="text-center">B:</h3>
-                    </div>
-                    <div class="col-md-8">
-                        <p class="lead" style="position: absolute;OVERFLOW: auto; CURSOR: default;top:30px;">
-                            {{$question->optionB}}
-                        </p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <h3 class="text-center">C:</h3>
-                    </div>
-                    <div class="col-md-8">
-                        <p class="lead" style="position: absolute;OVERFLOW: auto; CURSOR: default;top:30px;">
-                            {{$question->optionC}}
-                        </p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <h3 class="text-center">D:</h3>
-                    </div>
-                    <div class="col-md-8">
-                        <p class="lead" style="position: absolute;OVERFLOW: auto; CURSOR: default;top:30px;">
-                            {{$question->optionD}}
-                        </p>
-                    </div>
-                </div>
+                @endforeach
+
                 <div class="row">
                     <div class="col-md-4">
                         <h3 class="text-center">答案:</h3>

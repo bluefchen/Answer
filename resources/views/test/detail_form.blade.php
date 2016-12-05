@@ -5,15 +5,11 @@
 @else
 <h4 class="text-danger">第{{$i+1}}题：答错</h4>
 @endif
-<p><strong>题目：&nbsp;&nbsp;</strong>{!! nl2br($questions[$i]['title'])!!}</p>
-<p><strong>A: &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;</strong>{!! nl2br($questions[$i]['optionA']) !!}
-</p>
-<p><strong>B: &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;</strong>{!! nl2br($questions[$i]['optionB']) !!}
-</p>
-<p><strong>C: &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;</strong>{!! nl2br($questions[$i]['optionC']) !!}
-</p>
-<p><strong>D: &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;</strong>{!! nl2br($questions[$i]['optionD']) !!}
-</p>
+<p><strong>题目：&nbsp;&nbsp;</strong>{!! $parsedown->text($questions[$i]['title'])!!}</p>
+@foreach(explode("\r\n",$questions[$i]['options']) as $option)
+        <p>{{ $option}}</p>
+@endforeach
+
 <p class="text-danger"><strong>正确答案: &nbsp;&nbsp;&nbsp;
         &nbsp;&nbsp;&nbsp;</strong>{!! nl2br($questions[$i]['answer']) !!}</p>
 @if($useranswer[$questionids[$i+1]]!=NULL&&$useranswer[$questionids[$i+1]]!=$questions[$i]['answer'])

@@ -5,29 +5,12 @@
     </div>
 </div>
 <div class="form-group">
-    {!! Form::label('optionA','A',['class'=>'col-lg-2 control-label lead']) !!}
+    {!! Form::label('options','选项',['class'=>'col-lg-2 control-label lead']) !!}
     <div class="col-lg-10">
-        {!! Form::text('optionA',null,['class'=>'form-control',"required"=>"required"]) !!}
+        {!! Form::textarea('options',null,['class'=>'form-control',"rows"=>"4","required"=>"required"]) !!}
     </div>
 </div>
-<div class="form-group">
-    {!! Form::label('optionB','B',['class'=>'col-lg-2 control-label lead']) !!}
-    <div class="col-lg-10">
-        {!! Form::text('optionB',null,['class'=>'form-control',"required"=>"required"]) !!}
-    </div>
-</div>
-<div class="form-group">
-    {!! Form::label('optionC','C',['class'=>'col-lg-2 control-label lead']) !!}
-    <div class="col-lg-10">
-        {!! Form::text('optionC',null,['class'=>'form-control',"required"=>"required"]) !!}
-    </div>
-</div>
-<div class="form-group">
-    {!! Form::label('optionD','D',['class'=>'col-lg-2 control-label lead']) !!}
-    <div class="col-lg-10">
-        {!! Form::text('optionD',null,['class'=>'form-control',"required"=>"required"]) !!}
-    </div>
-</div>
+
 <div class="form-group">
     {!! Form::label('answer','答案',['class'=>'col-lg-2 control-label lead']) !!}
     <div class="col-lg-10">
@@ -43,7 +26,7 @@
 <div class="form-group">
     {!! Form::label('Tag','Tag',['class'=>'col-lg-2 control-label lead']) !!}
     <div class="col-lg-10">
-        {!! Form::select('tag_list[]', $tag_list, isset($tag)?$tag:1, ['id'=>'tag_list','class' => 'form-control bg-primary', 'multiple']) !!}
+        {!! Form::select('tag_list[]', array_slice($tag_list,1,count($tag_list)-1,true), isset($tag)?$tag:null, ['id'=>'tag_list','class' => 'form-control bg-primary', 'multiple']) !!}
     </div>
 </div>
 <div class="form-group">

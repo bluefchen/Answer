@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Question extends Model
 {
     //
-    protected $fillable=['title','optionA','optionB','optionC','optionD','tags','answer','useranswer','parse'];
+    protected $fillable=['title','optionA','optionB','optionC','optionD','tags','answer','useranswer','parse','options'];
 
     /**
      * 返回问题对应的标签

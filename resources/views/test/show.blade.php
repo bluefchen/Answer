@@ -4,28 +4,18 @@
     <div class="container">
         <div class="jumbotron">
             <h1>第{{$question_id}}题</h1>
-            <p>{!! nl2br($title)!!}</p>
+            <p>{!! $parsedown->text($title)!!}</p>
 
 
             {!! Form::open(['url' => "/test/$test_id/next/$question_id"]) !!}
 
                 <div class="form-group">
-                    <label class="radio ">
-                        <input type="radio" data-toggle="radio" name="answer"  value="A" data-radiocheck-toggle="radio" >
-                        {{$optionA}}
-                    </label>
-                    <label class="radio">
-                        <input type="radio" data-toggle="radio" name="answer"  value="B" data-radiocheck-toggle="radio">
-                        {{$optionB}}
-                    </label>
-                    <label class="radio ">
-                        <input type="radio" data-toggle="radio" name="answer"  value="C" data-radiocheck-toggle="radio">
-                        {{$optionC}}
-                    </label>
-                    <label class="radio ">
-                        <input type="radio" data-toggle="radio" name="answer"  value="D" data-radiocheck-toggle="radio">
-                        {{$optionD}}
-                    </label>
+                    @foreach(explode("\r\n",$options) as $option)
+                        <label class="radio ">
+                            <input type="radio" data-toggle="radio" name="answer"  value={{substr($option,0,1)}} data-radiocheck-toggle="radio" >
+                            <p class="lead">{!! $option!!}</p>
+                        </label>
+                    @endforeach
 
                 </div>
                 <button type="submit" class="btn btn-sm btn-primary" name="submit" >

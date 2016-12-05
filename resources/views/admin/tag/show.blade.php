@@ -17,6 +17,7 @@
                 <h2>Questions:</h2>
 
                 {!! Form::open(['url' => "/admin/tag/operate/$tag->id"]) !!}
+                <div style="height:500px;overflow: auto">
                 @foreach($questions as $question)
                     <label class="checkbox ">
                         <input type="checkbox" data-toggle="checkbox" value={{$question->id}} name="question_id[]">
@@ -29,6 +30,7 @@
                         </a>
                     </label>
                 @endforeach
+                </div>
                 <div class="row form-horizontal">
                     {!! Form::label('type','请选择操作：',['class'=>'col-lg-3 control-label lead']) !!}
                     <div class="col-lg-3">

@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
-                <h1>Wirte a New Question</h1>
+                <h1>Edit Question</h1>
                 <hr/>
 
                 {!!  Form::model($question,['method'=>'PATCH','url'=>"/admin/question/$question->id",'class'=>'form-horizontal'])!!}

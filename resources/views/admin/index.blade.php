@@ -14,10 +14,10 @@
                         </a>
                     </h2>
                 </div>
-                <div class="container col-md-12">
+                <div class="container col-md-12 " >
                     <form method="POST" action="/admin/question/delete" accept-charset="UTF-8" class="form-horizontal">
                         {!! csrf_field() !!}
-                        <div class="form-group row">
+                        <div class="form-group row " style="height: 500px;overflow: auto">
                             @foreach($questions as $question)
                                 <div class="col-md-11">
                                     <label class="checkbox ">
@@ -69,7 +69,7 @@
                 <div class="col-md-12 ">
                     <form method="POST" action="/admin/tag/delete" accept-charset="UTF-8" class="form-horizontal">
                         {!! csrf_field() !!}
-                        <div class="form-group">
+                        <div class="form-group" style="height: 500px;overflow: auto">
                             @foreach($tags as $tag)
                                 <label class="checkbox ">
                                     <input type="checkbox" data-toggle="checkbox" name="tag_id[]" value={{$tag->id}}>

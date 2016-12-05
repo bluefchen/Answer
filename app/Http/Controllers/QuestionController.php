@@ -29,7 +29,7 @@ class QuestionController extends Controller
      */
     public function create()
     {
-        $tag_list = Tag::lists('name', 'id');
+        $tag_list = Tag::lists('name', 'id')->toArray();
         return view('admin.question.create', compact('tag_list'));
     }
 
@@ -42,8 +42,10 @@ class QuestionController extends Controller
     public function store(Request $request)
     {
         $question = Question::create($request->except(['tag_list']));
-        // if (count($question->tags) != 0)
-        $question->tags()->sync($request->input('tag_list'));
+        $tags=$request->input('tag_list');
+        if(is_null($tags))
+            $tags[]=1;
+        $question->tags()->sync($tags);
         flash()->success("问题发布成功");
         return redirect('/admin');
     }
@@ -57,7 +59,10 @@ class QuestionController extends Controller
     public function show($id)
     {
         //
+
         $question = Question::findorFail($id);
+        $options = $question->options;
+
         $parsedown = new Parsedown();
         $tags = $question->tags->lists('name');
         return view('admin.question.show', compact('question', 'tags', 'parsedown'));
@@ -71,9 +76,15 @@ class QuestionController extends Controller
      */
     public function edit($id)
     {
-        //
+
+
+
+
         $question = Question::findOrFail($id);
-        $tag_list = Tag::lists('name', 'id');
+        $tag_list = Tag::lists('name', 'id')->toArray();
+//
+//        $tag_list2=;
+//        dd($tag_list2);
         $tag = $question->tags()->lists('id')->toArray();
         return view('admin.question.edit', compact('question', 'tag_list', 'tag'));
     }
@@ -91,7 +102,10 @@ class QuestionController extends Controller
 
         $question = Question::findOrFail($id);
         $question->update($request->except(['tags']));
-        $question->tags()->sync($request->input('tag_list'));
+        $tags=$request->input('tag_list');
+        if(is_null($tags))
+            $tags[]=1;
+        $question->tags()->sync($tags);
         flash()->success("问题修改成功");
         return redirect('/admin');
     }
@@ -117,12 +131,11 @@ class QuestionController extends Controller
     {
 
         $question_ids = Question::lists('id')->toArray();
-        $key=array_search($id,$question_ids);
-        if($key!=0&&$key!=false){
+        $key = array_search($id, $question_ids);
+        if ($key != 0 && $key != false) {
             $key--;
             return redirect("/admin/question/$question_ids[$key]");
-        }
-        else {
+        } else {
             flash()->success("已经是第一题");
             return redirect()->back();
         }
@@ -133,14 +146,15 @@ class QuestionController extends Controller
     public function nextshow($id)
     {
 
+
         $question_ids = Question::lists('id')->toArray();
-        $len=count($question_ids);
-        $key=array_search($id,$question_ids);
-        if($key!=$len-1&&$key!=false){
+        $len = count($question_ids);
+        $key = array_search($id, $question_ids);
+
+        if ($key != $len - 1 && $key !== false) {
             $key++;
             return redirect("/admin/question/$question_ids[$key]");
-        }
-        else {
+        } else {
             flash()->success("已经是最后一题");
             return redirect()->back();
         }

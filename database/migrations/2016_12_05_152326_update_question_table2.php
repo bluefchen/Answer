@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class UpdateQuestionTable extends Migration
+class UpdateQuestionTable2 extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class UpdateQuestionTable extends Migration
     public function up()
     {
         Schema::table('questions', function ($table) {
-            $table->text('parse');
+            $table->text('options');
         });
     }
 
@@ -24,6 +24,6 @@ class UpdateQuestionTable extends Migration
      */
     public function down()
     {
-        Schema::dropColumn('parse');
+        Schema::dropColumn('options');
     }
 }

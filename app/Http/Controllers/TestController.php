@@ -7,7 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Question;
 use App\Test;
-
+use App\Tag;
+use Parsedown;
 class TestController extends Controller
 {
 
@@ -28,7 +29,9 @@ class TestController extends Controller
      */
     public function index()
     {
-        return view('test.index');
+        $tags=Tag::lists('name','id')->toArray();
+        $tags[1]="范围不限";
+        return view('test.index',compact('tags'));
     }
 
 
@@ -41,11 +44,13 @@ class TestController extends Controller
     public function prepare(Request $request)
     {
         //获取表单中提交的答题数目以及测试方式。
+        $tag_list=$request->get('tag_list');
         $testType=$request->get('testtype');
         $totalNumber=$request->get('totalnumber');
         //得到所有要答的题目的id号。
-        $questionids=Test::generateQuestion($testType,$totalNumber);
+        $questionids=Test::generateQuestion( $tag_list,$testType,$totalNumber);
 
+        $totalNumber=count($questionids);//由于现在题量可能不够，实际获取的题目可能不是用户设置的题目。
         $test=new Test;
         $test->user_id=$request->user()->id;
         $test->testtype=$testType;
@@ -71,9 +76,10 @@ class TestController extends Controller
     {
         $test=Test::find($test_id);
         $question_ids=json_decode($test->questionids,true);
-
+        $parsedown = new Parsedown();
+        
         $question = Question::find($question_ids[$id]);
-        return view('test.show', array_merge($question->toArray(), ['total' => ($test->totalnumber),'question_id'=>$id,'test_id'=>$test_id]));
+        return view('test.show', array_merge($question->toArray(), ['total' => ($test->totalnumber),'question_id'=>$id,'test_id'=>$test_id,'parsedown'=>$parsedown]));
     }
 
     /**
@@ -138,18 +144,18 @@ class TestController extends Controller
     /**
      * 用于显示所有的错题
      *
-     * @param Request $request
      * @param $test_id
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function detail(Request $request,$test_id)
+    public function detail($test_id)
     {
+        $parsedown=new Parsedown();
         $test=Test::find($test_id);
         $total=$test->totalnumber;
         $questions=$test->questions->toArray();
         $useranswer=json_decode($test->useranswer,true);
         $questionids=json_decode($test->questionids,true);
-        return view('test.detail',compact('total','questions','useranswer','questionids','test_id'));
+        return view('test.detail',compact('total','questions','useranswer','questionids','test_id','parsedown'));
         
     }
 
@@ -163,12 +169,13 @@ class TestController extends Controller
      */
     public function allDetail(Request $request,$test_id)
     {
+        $parsedown=new Parsedown();
         $test=Test::find($test_id);
         $total=$test->totalnumber;
         $questions=$test->questions->toArray();
         $useranswer=json_decode($test->useranswer,true);
         $questionids=json_decode($test->questionids,true);
-        return view('test.alldetail',compact('total','questions','useranswer','questionids','test_id'));
+        return view('test.alldetail',compact('total','questions','useranswer','questionids','test_id','parsedown'));
 
     }
 

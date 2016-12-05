@@ -10,7 +10,8 @@
         "laravelcollective/html":"5.2.*",
         "laracasts/flash": "^2.0",
         "erusev/parsedown": "^1.6",
-        "guzzlehttp/guzzle": "~5.3|~6.0"
+        "guzzlehttp/guzzle": "~5.3|~6.0",
+        "doctrine/dbal": "^2.5"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
