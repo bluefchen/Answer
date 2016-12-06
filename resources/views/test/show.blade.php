@@ -3,6 +3,15 @@
 @section('content')
     <div class="container">
         <div class="jumbotron">
+
+            <div class="progress progress-striped active" style="height: 25px" >
+                <div class="progress-bar " role="progressbar"
+                    aria-valuemin="0" aria-valuemax="100"
+                     style="width: {{round(($question_id-1)/$total*100).'%'}};">
+                    <span class="sr-only"></span>
+                </div>
+            </div>
+
             <h1>第{{$question_id}}题</h1>
             <p>{!! $parsedown->text($title)!!}</p>
 

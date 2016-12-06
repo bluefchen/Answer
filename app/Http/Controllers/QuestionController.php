@@ -58,14 +58,20 @@ class QuestionController extends Controller
      */
     public function show($id)
     {
-        //
 
-        $question = Question::findorFail($id);
-        $options = $question->options;
+        $question = Question::find($id);
+        if($question==null)
+        {
+            flash()->success("已经是第一题/最后一题");
+            return redirect()->back();
+        }
 
         $parsedown = new Parsedown();
         $tags = $question->tags->lists('name');
-        return view('admin.question.show', compact('question', 'tags', 'parsedown'));
+        $previous=Question::where('id','<',$question->id)->max('id');
+        $next=Question::where('id','>',$question->id)->min('id');
+
+        return view('admin.question.show', compact('question', 'tags', 'parsedown','previous','next'));
     }
 
     /**
@@ -77,14 +83,9 @@ class QuestionController extends Controller
     public function edit($id)
     {
 
-
-
-
         $question = Question::findOrFail($id);
         $tag_list = Tag::lists('name', 'id')->toArray();
-//
-//        $tag_list2=;
-//        dd($tag_list2);
+
         $tag = $question->tags()->lists('id')->toArray();
         return view('admin.question.edit', compact('question', 'tag_list', 'tag'));
     }
@@ -127,38 +128,6 @@ class QuestionController extends Controller
     }
 
 
-    public function prevshow($id)
-    {
-
-        $question_ids = Question::lists('id')->toArray();
-        $key = array_search($id, $question_ids);
-        if ($key != 0 && $key != false) {
-            $key--;
-            return redirect("/admin/question/$question_ids[$key]");
-        } else {
-            flash()->success("已经是第一题");
-            return redirect()->back();
-        }
-
-
-    }
-
-    public function nextshow($id)
-    {
-
-
-        $question_ids = Question::lists('id')->toArray();
-        $len = count($question_ids);
-        $key = array_search($id, $question_ids);
-
-        if ($key != $len - 1 && $key !== false) {
-            $key++;
-            return redirect("/admin/question/$question_ids[$key]");
-        } else {
-            flash()->success("已经是最后一题");
-            return redirect()->back();
-        }
-
-    }
+   
 
 }

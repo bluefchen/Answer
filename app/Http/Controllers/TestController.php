@@ -172,10 +172,11 @@ class TestController extends Controller
         $parsedown=new Parsedown();
         $test=Test::find($test_id);
         $total=$test->totalnumber;
+        $point=$test->point;
         $questions=$test->questions->toArray();
         $useranswer=json_decode($test->useranswer,true);
         $questionids=json_decode($test->questionids,true);
-        return view('test.alldetail',compact('total','questions','useranswer','questionids','test_id','parsedown'));
+        return view('test.alldetail',compact('total','questions','useranswer','questionids','test_id','parsedown','point'));
 
     }
 

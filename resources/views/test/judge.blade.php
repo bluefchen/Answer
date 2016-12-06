@@ -14,7 +14,11 @@
                 <h4>继续努力!您得了{{$point}}分！</h4>
             @endif
             <h4>一共{{$total}}道题，您答对了{{$num}}道</h4>
-            <a class="text-danger" href={{"/test/$test_id/details"}}>点击查看错题详情</a>
+            @if($point==100)
+                <a class="text-warning" href={{"/test/$test_id/alldetails"}}>点击查看答题详情</a>
+            @else
+                <a class="text-danger" href={{"/test/$test_id/details"}}>点击查看错题详情</a>
+            @endif
         </div>
     </div>
 @endsection

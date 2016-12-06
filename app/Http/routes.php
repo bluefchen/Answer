@@ -22,8 +22,6 @@ Route::post('/admin/tag/delete','TagController@delete');
 Route::post('/admin/tag/operate/{id}','TagController@operate');
 Route::resource('/admin/question', 'QuestionController',['except' => ['index','destroy']]);
 Route::post('/admin/question/delete','QuestionController@delete');
-Route::get('/admin/question/prevshow/{id}','QuestionController@prevshow');
-Route::get('/admin/question/nextshow/{id}','QuestionController@nextshow');
 
 Route::get('/test', 'TestController@index');
 Route::post('/test', 'TestController@prepare');
