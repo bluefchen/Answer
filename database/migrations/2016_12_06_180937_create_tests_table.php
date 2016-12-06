@@ -15,6 +15,8 @@ class CreateTestsTable extends Migration
         Schema::create('tests', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
+            $table->timestamp('ended_at');
+            $table->string('tagtype');
             $table->integer('totalnumber')->default(5);
             $table->integer('testtype')->default(0);
             $table->integer('point')->default(-1);
@@ -28,7 +30,7 @@ class CreateTestsTable extends Migration
             $table->integer('question_id')->unsigned()->index();
             $table->foreign('question_id')->references('id')->on('questions');
             $table->integer('test_id')->unsigned()->index();
-            $table->foreign('test_id')->references('id')->on('tests')->onDelete('cascade');
+            $table->foreign('test_id')->references('id')->on('tests');
             $table->timestamps();
         });
     }
@@ -40,7 +42,7 @@ class CreateTestsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('tests');
         Schema::drop('question_test');
+        Schema::drop('tests');
     }
 }

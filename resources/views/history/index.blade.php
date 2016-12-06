@@ -9,11 +9,14 @@
                 <br/>
 
 
+
                 <table class="table table-hover table-bordered">
                     <tr>
                         <th>测试ID</th>
-                        <th>答题时间</th>
+                        <th>测试时间</th>
+                        <th>答题时长</th>
                         <th>题量</th>
+                        <th>范围</th>
                         <th>答题类型</th>
                         <th>分数</th>
                         <th>详情</th>
@@ -22,8 +25,9 @@
                         <tr>
                             <th> {{$test['id']}}</th>
                             <th>{{$test['created_at']}}</th>
+                            <th>{{gmdate("H:i:s",(strtotime($test['ended_at'])-strtotime($test['created_at'])))}}</th>
                             <th>{{$test['totalnumber']}}</th>
-
+                            <th>{{$test['tagtype']}}</th>
                             <th>
                                 @if($test['testtype']==0)
                                     随机

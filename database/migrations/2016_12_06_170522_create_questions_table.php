@@ -14,16 +14,14 @@ class CreateQuestionsTable extends Migration
     {
         Schema::create('questions', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('qtype')->default(0);
             $table->text('title');
-            $table->string('optionA');
-            $table->string('optionB');
-            $table->string('optionC');
-            $table->string('optionD');
+            $table->text('options');
             $table->string('answer');
+            $table->text('parse');
 
             $table->timestamps();
         });
-
     }
 
     /**

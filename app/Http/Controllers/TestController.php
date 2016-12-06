@@ -55,6 +55,12 @@ class TestController extends Controller
         $test->user_id=$request->user()->id;
         $test->testtype=$testType;
         $test->totalnumber=$totalNumber;
+        if($tag_list==0)
+            $test->tagtype="范围不限";
+        else
+        {
+            $test->tagtype=Tag::find($tag_list)->name;
+        }
         $test->save();
         foreach($questionids as $q_id)
         {
@@ -75,6 +81,8 @@ class TestController extends Controller
     public function show(Request $request,$test_id,$id)
     {
         $test=Test::find($test_id);
+        if(time()>strtotime($test->ended_at)||$request->user()->id!=$test->user->id)
+            return view('errors.404');
         $question_ids=json_decode($test->questionids,true);
         $parsedown = new Parsedown();
         
@@ -115,8 +123,14 @@ class TestController extends Controller
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function judge(Request $request,$test_id)
+
     {
         $test=Test::find($test_id);
+        if(time()>strtotime($test->ended_at))
+            return view('errors.404');
+
+        $test->ended_at=date("Y-m-d H:i:s");
+
         $total = $test->totalnumber;
         $referanswer=$test->questions()->lists('answer','id')->toArray();
         $useranswer=json_decode($test->useranswer,true);
@@ -147,10 +161,14 @@ class TestController extends Controller
      * @param $test_id
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function detail($test_id)
+    public function detail(Request $request,$test_id)
     {
+
         $parsedown=new Parsedown();
         $test=Test::find($test_id);
+        dd($request->user()->id);
+        if($request->user()->id!=$test->user->id)
+            return view('errors.404');
         $total=$test->totalnumber;
         $questions=$test->questions->toArray();
         $useranswer=json_decode($test->useranswer,true);
@@ -171,6 +189,9 @@ class TestController extends Controller
     {
         $parsedown=new Parsedown();
         $test=Test::find($test_id);
+
+        if($request->user()->id!=$test->user->id)
+            return view('errors.404');
         $total=$test->totalnumber;
         $point=$test->point;
         $questions=$test->questions->toArray();
