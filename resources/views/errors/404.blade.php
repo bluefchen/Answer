@@ -40,7 +40,8 @@
 <body>
 <div class="container">
     <div class="content">
-        <div class="title">404 NOT FOUND</div>
+        <div class="title">404 </div>
+        <div class="title">PAGES NOT FOUND</div>
     </div>
 </div>
 </body>

@@ -65,7 +65,7 @@ class Test extends Model
                 break;
         }
         $key = range(1, $totalNumber);
-        return array_combine($key, $question_ids);//返回键值从1开始的关联数组
+        return array_combine($key, (array)$question_ids);//返回键值从1开始的关联数组
 
     }
 }

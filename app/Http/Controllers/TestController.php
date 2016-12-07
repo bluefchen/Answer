@@ -81,7 +81,7 @@ class TestController extends Controller
     public function show(Request $request,$test_id,$id)
     {
         $test=Test::find($test_id);
-        if(time()>strtotime($test->ended_at)||$request->user()->id!=$test->user->id)
+        if(strtotime($test->ended_at)!=0||$request->user()->id!=$test->user->id)
             return view('errors.404');
         $question_ids=json_decode($test->questionids,true);
         $parsedown = new Parsedown();
@@ -126,7 +126,7 @@ class TestController extends Controller
 
     {
         $test=Test::find($test_id);
-        if(time()>strtotime($test->ended_at))
+        if(strtotime($test->ended_at)!=0)
             return view('errors.404');
 
         $test->ended_at=date("Y-m-d H:i:s");
@@ -148,7 +148,7 @@ class TestController extends Controller
             else
                 $answer[] = 0;
         }
-        $point=(100/$total)*$num;
+        $point=round((100/$total)*$num);
         $test->point=$point;
         $test->save();
         return view('test.judge', compact('num', 'total', 'answer','point','test_id'));
@@ -166,7 +166,6 @@ class TestController extends Controller
 
         $parsedown=new Parsedown();
         $test=Test::find($test_id);
-        dd($request->user()->id);
         if($request->user()->id!=$test->user->id)
             return view('errors.404');
         $total=$test->totalnumber;
