@@ -21,8 +21,8 @@ class CreateTestsTable extends Migration
             $table->integer('testtype')->default(0);
             $table->integer('point')->default(-1);
             $table->integer('user_id');
-            $table->json('questionids');
-            $table->json('useranswer');
+            $table->string('questionids');
+            $table->string('useranswer');
 
         });
 
