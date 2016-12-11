@@ -81,7 +81,7 @@ class TestController extends Controller
     public function show(Request $request,$test_id,$id)
     {
         $test=Test::find($test_id);
-        if(strtotime($test->ended_at)!=0||$request->user()->id!=$test->user->id)
+        if($test->ended_at!="0000-00-00 00:00:00"||$request->user()->id!=$test->user->id)
             return view('errors.404');
         $question_ids=json_decode($test->questionids,true);
         $parsedown = new Parsedown();
@@ -126,7 +126,7 @@ class TestController extends Controller
 
     {
         $test=Test::find($test_id);
-        if(strtotime($test->ended_at)!=0)
+        if($test->ended_at!="0000-00-00 00:00:00")
             return view('errors.404');
 
         $test->ended_at=date("Y-m-d H:i:s");
