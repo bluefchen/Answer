@@ -11,12 +11,14 @@
     </div>
 </div>
 
+
 <div class="form-group">
     {!! Form::label('answer','答案',['class'=>'col-lg-2 control-label lead']) !!}
     <div class="col-lg-10">
-        {!! Form::text('answer',null,['class'=>'form-control',"required"=>"required"]) !!}
+        {!! Form::select('answer', ['A'=>'A','B'=>'B','C'=>'C','D'=>'D'], null, ['id'=>'answer','class' => 'form-control ']) !!}
     </div>
 </div>
+
 <div class="form-group">
     {!! Form::label('parse','解析',['class'=>'col-lg-2 control-label lead']) !!}
     <div class="col-lg-10">
