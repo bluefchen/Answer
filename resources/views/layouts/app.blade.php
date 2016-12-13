@@ -13,7 +13,7 @@
     <!-- Loading Flat UI -->
     <link href="{{URL::asset('assets/dist/css/flat-ui.css')}}" rel="stylesheet">
 
-    <link rel="shortcut icon" href="{{URL::asset('assets/dist/img/favicon.ico')}}">
+    <link rel="shortcut icon" href="{{URL::asset('assets/dist/img/icon.png')}}">
     <link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css" rel="stylesheet" />
 
     <!--导入代码高亮：highlight.css-->

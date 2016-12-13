@@ -80,7 +80,19 @@
                     </div>
                     <div class="col-md-8">
                         <p class="lead" style="position: absolute;OVERFLOW: auto; CURSOR: default;top:30px;">
+                            @if($question->qtype_id==2)
+                                {{implode(", ",json_decode($question->answer))}}
+                            @elseif($question->qtype_id==3)
+                                @if($question->answer=='0')
+                                    错
+                                @else
+                                    对
+                                @endif
+                            @elseif($question->qtype_id==4||$question->qtype_id==5)
+                                {!! $parsedown->text($question->answer)!!}
+                            @else
                             {{$question->answer}}
+                            @endif
                         </p>
                     </div>
                 </div>

@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Tag;
 use Parsedown;
+use App\Qtype;
 
 class QuestionController extends Controller
 {
@@ -22,15 +23,18 @@ class QuestionController extends Controller
         $this->middleware('admin');
     }
 
+
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
+     * how the form for creating a new resource.
+     * 
+     * @param $qtype：新建题目类型
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function create()
+    public function create($qtype)
     {
         $tag_list = Tag::lists('name', 'id')->toArray();
-        return view('admin.question.create', compact('tag_list'));
+        $qtypes=Qtype::lists('name','id')->toArray();
+        return view('admin.question.create', compact('tag_list','qtype','qtypes'));
     }
 
     /**
@@ -41,11 +45,20 @@ class QuestionController extends Controller
      */
     public function store(Request $request)
     {
-        $question = Question::create($request->except(['tag_list']));
+
+        $question = Question::create($request->except(['tag_list','answer']));
         $tags=$request->input('tag_list');
+
+        if($request->qtype_id==2)
+            $question->answer=json_encode($request->answer);
+        else
+            $question->answer=$request->answer;
+
+        $question->save();
         if(is_null($tags))
             $tags[]=1;
         $question->tags()->sync($tags);
+        
         flash()->success("问题发布成功");
         return redirect('/admin');
     }
@@ -85,9 +98,9 @@ class QuestionController extends Controller
 
         $question = Question::findOrFail($id);
         $tag_list = Tag::lists('name', 'id')->toArray();
-
+        $qtypes=Qtype::lists('name','id')->toArray();
         $tag = $question->tags()->lists('id')->toArray();
-        return view('admin.question.edit', compact('question', 'tag_list', 'tag'));
+        return view('admin.question.edit', compact('question', 'tag_list', 'tag','qtypes'));
     }
 
     /**
@@ -102,7 +115,12 @@ class QuestionController extends Controller
 
 
         $question = Question::findOrFail($id);
-        $question->update($request->except(['tags']));
+        $question->update($request->except(['tags','answer']));
+        if($request->qtype_id==2)
+            $question->answer=json_encode($request->answer);
+        else
+            $question->answer=$request->answer;
+        $question->save();
         $tags=$request->input('tag_list');
         if(is_null($tags))
             $tags[]=1;

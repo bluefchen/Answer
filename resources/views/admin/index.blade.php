@@ -8,10 +8,29 @@
                     <h2>
                         &nbsp;
                         题目列表
-                        <a href="/admin/question/create" class="btn btn-lg" style="padding:0px 4px;font-size:40px">
-                            <span class="glyphicon glyphicon-plus"
-                                  style="position: absolute;top:40px; left: 600px;right: 0px;"></span>
+                        <a>
+                            <span id="add" class="glyphicon glyphicon-plus"
+                                  style="position: absolute; top:40px;left: 600px;right: 60px;"></span>
                         </a>
+
+
+
+                        <a href="/admin/question/create/1">
+                        <img id="add1" src="{{URL::asset('assets/dist/img/icons/admin/1.png')}}"  style="position: absolute;top:58px;left: 535px;height: 50px;weight:50px;"/>
+                        </a>
+                        <a href="/admin/question/create/2">
+                            <img id="add2" src="{{URL::asset('assets/dist/img/icons/admin/2.png')}}"  style="position: absolute;top:10px;left: 548px;height: 50px;weight:50px;"/>
+                        </a>
+                        <a href="/admin/question/create/3">
+                            <img id="add3" src="{{URL::asset('assets/dist/img/icons/admin/3.png')}}"  style="position: absolute;top:-22px;left: 600px;height: 50px;weight:50px;"/>
+                        </a>
+                        <a href="/admin/question/create/4">
+                            <img id="add4" src="{{URL::asset('assets/dist/img/icons/admin/4.png')}}"   style="position: absolute;top:10px;left: 652px;height: 50px;weight:50px;"/>
+                        </a>
+                        <a href="/admin/question/create/5">
+                            <img id="add5" src="{{URL::asset('assets/dist/img/icons/admin/5.png')}}"  style="position: absolute;top:58px;left: 667px;height: 50px;weight:50px;"/>
+                        </a>
+
                     </h2>
                 </div>
                 <div class="container col-md-12 " >
@@ -94,4 +113,23 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('footer')
+<script>
+    $("#add1").hide();
+    $("#add2").hide();
+    $("#add3").hide();
+    $("#add4").hide();
+    $("#add5").hide();
+    $("#add").click(function(){
+        var t;
+        t=50;
+        $("#add1").fadeToggle(t);
+        $("#add2").delay(t).fadeToggle(t);
+        $("#add3").delay(2*t).fadeToggle(t);
+        $("#add4").delay(3*t).fadeToggle(t);
+        $("#add5").delay(4*t).fadeToggle(t);
+    });
+</script>
 @endsection

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Question extends Model
 {
     //
-    protected $fillable=['title','answer','useranswer','parse','options'];
+    protected $fillable=['title','answer','useranswer','parse','options','qtype_id'];
 
     /**
      * 返回问题对应的标签
@@ -26,5 +26,15 @@ class Question extends Model
     public function tests()
     {
         return $this->belongsToMany('App\Test')->withTimestamps();
+    }
+
+    /**
+     * 返回问题的标签
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function qtype()
+    {
+        return $this->belongsTo('App\Qtype');
     }
 }
