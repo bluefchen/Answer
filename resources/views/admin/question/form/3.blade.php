@@ -11,13 +11,13 @@
     <div class="col-lg-10 ">
         <div class="col-sm-2" style="position: relative;top:15px">
             <label class="radio">
-                <input type="radio" data-toggle="radio" name="answer"  value="1" data-radiocheck-toggle="radio" required @if(isset($question)&&($question->answer)=="1")checked=""@endif>
+                <input type="radio" data-toggle="radio" name="answer"  value="对" data-radiocheck-toggle="radio" required @if(isset($question)&&($question->answer)=="1")checked=""@endif>
                 对
             </label>
         </div>
         <div class="col-sm-2" style="position: relative;top:15px">
             <label class="radio">
-                <input type="radio" data-toggle="radio" name="answer"  value="0" data-radiocheck-toggle="radio"  @if(isset($question)&&($question->answer)=="0")checked=""@endif >
+                <input type="radio" data-toggle="radio" name="answer"  value="错" data-radiocheck-toggle="radio"  @if(isset($question)&&($question->answer)=="0")checked=""@endif >
                 错
             </label>
         </div>

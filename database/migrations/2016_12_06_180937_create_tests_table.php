@@ -23,6 +23,7 @@ class CreateTestsTable extends Migration
             $table->integer('user_id');
             $table->string('questionids');
             $table->string('useranswer');
+            $table->string('judges');
 
         });
 

@@ -7,7 +7,7 @@
                 <a href={{"/test/$test_id/alldetails"}} class="text-warning">点击查看全部题目</a>
                 <h2 class="text-danger">错题/未做题</h2>
                 @for($i=0;$i<$total;$i++)
-                    @if($useranswer[$questionids[$i+1]]!=$questions[$i]['answer'])
+                    @if($judges[$i]!=1)
                        @include('test.detail_form')
                     @endif
                     @endfor

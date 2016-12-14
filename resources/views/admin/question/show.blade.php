@@ -7,24 +7,25 @@
                 <h2>
 
                     ID:
-                    @if($previous!=null)
-                    <a class="btn btn-lg" href="{{url("/admin/question/".$previous)}}"
-                       style="padding:0px 4px;font-size:40px">
-                        <span class="glyphicon glyphicon-arrow-left text-warning"
-                              style="position: relative; left: 20px"></span>
-                    </a>
+                    @if($next!=null)
+                        <a class="btn btn-lg" href="{{url("/admin/question/".$next)}}"
+                           style="padding:0px 4px;font-size:40px">
+                        <span class="glyphicon glyphicon-arrow-left text-info"
+                              style="position: relative; left: 10px;"></span>
+                        </a>
                     @endif
+
                     &nbsp;
                     {{$question->id}}
-
-
-                    @if($next!=null)
-                    <a class="btn btn-lg" href="{{url("/admin/question/".$next)}}"
-                       style="padding:0px 4px;font-size:40px">
-                        <span class="glyphicon glyphicon-arrow-right text-info"
-                              style="position: relative; left: 10px;"></span>
-                    </a>
+                    @if($previous!=null)
+                        <a class="btn btn-lg" href="{{url("/admin/question/".$previous)}}"
+                           style="padding:0px 4px;font-size:40px">
+                        <span class="glyphicon glyphicon-arrow-right text-warning"
+                              style="position: relative; left: 20px"></span>
+                        </a>
                     @endif
+
+
                     <a class="btn btn-lg" href="/admin/question/{{$question->id}}/edit"
                        style="padding:0px 4px;font-size:40px">
                         <span class="glyphicon glyphicon-pencil"

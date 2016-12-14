@@ -34,6 +34,7 @@ class QuestionController extends Controller
     {
         $tag_list = Tag::lists('name', 'id')->toArray();
         $qtypes=Qtype::lists('name','id')->toArray();
+
         return view('admin.question.create', compact('tag_list','qtype','qtypes'));
     }
 

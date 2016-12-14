@@ -26,7 +26,8 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $questions=Question::all();
+
+        $questions=Question::orderBy('id','dsec')->get();
         $tags=Tag::all();
 
         return view('admin.index',compact('questions','tags'));
