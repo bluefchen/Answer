@@ -27,9 +27,9 @@ class AdminController extends Controller
     public function index()
     {
 
-        $questions=Question::orderBy('id','dsec')->get();
-        $tags=Tag::all();
 
-        return view('admin.index',compact('questions','tags'));
+
+        $sidearr=[['1'],['0',['0','0']]];
+        return view('admin.i',compact('sidearr'));
     }
 }

@@ -17,10 +17,10 @@ Route::get('/', function () {
 
 Route::auth();
 Route::get('/admin','AdminController@index');
-Route::resource('/admin/tag', 'TagController',['except' => ['index', 'destroy']]);
+Route::resource('/admin/tag', 'TagController',['except' => ['destroy']]);
 Route::post('/admin/tag/delete','TagController@delete');
 Route::post('/admin/tag/operate/{id}','TagController@operate');
-Route::resource('/admin/question', 'QuestionController',['except' => ['index','destroy','create']]);
+Route::resource('/admin/question', 'QuestionController',['except' => ['destroy','create']]);
 Route::get('admin/question/create/{qtype}','QuestionController@create');
 Route::post('/admin/question/delete','QuestionController@delete');
 

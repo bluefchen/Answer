@@ -13,6 +13,7 @@ use App\Qtype;
 class QuestionController extends Controller
 {
 
+    private   $sidearr=[['0'],['1',['1','0']]];
 
     /**
      * QuestionController constructor.
@@ -25,6 +26,20 @@ class QuestionController extends Controller
 
 
     /**
+     * 显示问题主界面
+     * 
+     */
+    public function index()
+    {
+        $questions=Question::orderBy('id','dsec')->get();
+
+        $sidearr=$this->sidearr;
+        return view('admin.question',compact('sidearr','questions'));
+    }
+    
+    
+    
+    /**
      * how the form for creating a new resource.
      * 
      * @param $qtype：新建题目类型
@@ -34,8 +49,9 @@ class QuestionController extends Controller
     {
         $tag_list = Tag::lists('name', 'id')->toArray();
         $qtypes=Qtype::lists('name','id')->toArray();
+        $sidearr=$this->sidearr;
 
-        return view('admin.question.create', compact('tag_list','qtype','qtypes'));
+        return view('admin.question.create', compact('tag_list','qtype','qtypes','sidearr'));
     }
 
     /**
@@ -73,6 +89,7 @@ class QuestionController extends Controller
     public function show($id)
     {
 
+        $sidearr=$this->sidearr;
         $question = Question::find($id);
         if($question==null)
         {
@@ -85,7 +102,7 @@ class QuestionController extends Controller
         $previous=Question::where('id','<',$question->id)->max('id');
         $next=Question::where('id','>',$question->id)->min('id');
 
-        return view('admin.question.show', compact('question', 'tags', 'parsedown','previous','next'));
+        return view('admin.question.show', compact('question', 'tags', 'parsedown','previous','next','sidearr'));
     }
 
     /**
@@ -101,7 +118,8 @@ class QuestionController extends Controller
         $tag_list = Tag::lists('name', 'id')->toArray();
         $qtypes=Qtype::lists('name','id')->toArray();
         $tag = $question->tags()->lists('id')->toArray();
-        return view('admin.question.edit', compact('question', 'tag_list', 'tag','qtypes'));
+        $sidearr=$this->sidearr;
+        return view('admin.question.edit', compact('question', 'tag_list', 'tag','qtypes','sidearr'));
     }
 
     /**

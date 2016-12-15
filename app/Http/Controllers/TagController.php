@@ -11,6 +11,7 @@ use App\Question;
 class TagController extends Controller
 {
 
+    private   $sidearr=[['0'],['1',['0','1']]];
 
     public function __construct()
     {
@@ -18,6 +19,20 @@ class TagController extends Controller
         $this->middleware('admin');
     }
 
+
+
+    /**
+     * 显示问题主界面
+     *
+     */
+    public function index()
+    {
+        $tags=Tag::all();
+        $sidearr=$this->sidearr;
+        return view('admin.tag',compact('sidearr','tags'));
+    }
+    
+    
     /**
      * Show the form for creating a new resource.
      *
@@ -26,7 +41,8 @@ class TagController extends Controller
     public function create()
     {
         //
-        return view('admin.tag.create');
+        $sidearr=$this->sidearr;
+        return view('admin.tag.create',compact('sidearr'));
     }
 
 
@@ -40,7 +56,8 @@ class TagController extends Controller
         $tag_list = Tag::lists('name', 'id');
         $tag = Tag::find($id);
         $questions = $tag->questions;
-        return view('admin.tag.show', compact('tag', 'tag_list', 'questions'));
+        $sidearr=$this->sidearr;
+        return view('admin.tag.show', compact('tag', 'tag_list', 'questions','sidearr'));
     }
 
     /**
@@ -69,7 +86,8 @@ class TagController extends Controller
     {
         //
         $tag = Tag::find($id);
-        return view('admin.tag.edit', compact('tag'));
+        $sidearr=$this->sidearr;
+        return view('admin.tag.edit', compact('tag','sidearr'));
     }
 
     /**
