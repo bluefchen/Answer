@@ -30,6 +30,6 @@ class AdminController extends Controller
 
 
         $sidearr=[['1'],['0',['0','0']]];
-        return view('admin.i',compact('sidearr'));
+        return view('admin.layout2',compact('sidearr'));
     }
 }
