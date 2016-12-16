@@ -7,9 +7,11 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Question;
 use App\Tag;
-
+use App\User;
 class AdminController extends Controller
 {
+
+    private $sidearr=[['1'],['0',['0','0']],['0']];
     /**
      * AdminController constructor.
      */
@@ -29,7 +31,18 @@ class AdminController extends Controller
 
 
 
-        $sidearr=[['1'],['0',['0','0']]];
-        return view('admin.layout2',compact('sidearr'));
+        $sidearr=$this->sidearr;
+        return view('admin.index',compact('sidearr'));
+    }
+    
+    
+    public function users()
+    {
+        $sidearr=$this->sidearr;
+        $sidearr[0][0]=0;
+        $sidearr[2][0]=1;
+        $users=User::all()->toArray();
+        return view('admin.users',compact('sidearr','users'));
+        
     }
 }

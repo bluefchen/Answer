@@ -17,6 +17,7 @@ Route::get('/', function () {
 
 Route::auth();
 Route::get('/admin','AdminController@index');
+Route::get('/admin/users','AdminController@users');
 Route::resource('/admin/tag', 'TagController',['except' => ['destroy']]);
 Route::post('/admin/tag/delete','TagController@delete');
 Route::post('/admin/tag/operate/{id}','TagController@operate');

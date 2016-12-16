@@ -1,6 +1,8 @@
 @extends('admin.layout')
 @section('content')
     <div class="container">
+        <br/>
+        <br/>
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
                 <div class="panel panel-default">
@@ -17,7 +19,7 @@
                             {!! csrf_field() !!}
                             <input type="text" name="name" class="form-control" required="required" placeholder="请输入Tag">
                             <br/>
-                            <input type="submit" class="btn btn-lg btn-info" value="新增Tag">
+                            <input type="submit" class="btn btn-flat btn-info" value="新增Tag">
                         </form>
                     </div>
                 </div>

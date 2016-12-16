@@ -34,7 +34,7 @@
 @section('footer')
     <script type="text/javascript">
         $('#tag_list').select2();
-        $('#answer').select2();
+
     </script>
 
 @endsection

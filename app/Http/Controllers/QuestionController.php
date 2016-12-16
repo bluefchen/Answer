@@ -13,7 +13,7 @@ use App\Qtype;
 class QuestionController extends Controller
 {
 
-    private   $sidearr=[['0'],['1',['1','0']]];
+    private   $sidearr=[['0'],['1',['1','0']],['0']];
 
     /**
      * QuestionController constructor.
@@ -77,7 +77,7 @@ class QuestionController extends Controller
         $question->tags()->sync($tags);
         
         flash()->success("问题发布成功");
-        return redirect('/admin');
+        return redirect('/admin/question');
     }
 
     /**
@@ -145,7 +145,7 @@ class QuestionController extends Controller
             $tags[]=1;
         $question->tags()->sync($tags);
         flash()->success("问题修改成功");
-        return redirect('/admin');
+        return redirect('/admin/question');
     }
 
 

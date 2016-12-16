@@ -11,7 +11,7 @@ use App\Question;
 class TagController extends Controller
 {
 
-    private   $sidearr=[['0'],['1',['0','1']]];
+    private   $sidearr=[['0'],['1',['0','1']],['0']];
 
     public function __construct()
     {
@@ -71,7 +71,7 @@ class TagController extends Controller
         $this->validate($request, ['name' => 'required|unique:tags']);
         Tag::create($request->all());
         flash()->success("Tag新建成功");
-        return redirect('admin');
+        return redirect('admin/tag');
 
     }
 
@@ -106,7 +106,7 @@ class TagController extends Controller
 
         if ($tag->save()) {
             flash()->success("Tag更新成功");
-            return redirect('/admin');//编辑成功返回article页面
+            return redirect('/admin/tag');//编辑成功返回article页面
         } else
             return redirect()->back()->withInput()->withErrors('更新失败！');//失败则返回上一个页面，保留用户信息
     }

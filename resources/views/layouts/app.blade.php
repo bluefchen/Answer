@@ -66,7 +66,7 @@
                         <li><a href="{{ url('/login') }}">Login</a></li>
                         <li><a href="{{ url('/register') }}">Register</a></li>
                     @else
-                        <li class="dropdown">
+                        <li class="dropdown ">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                 {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
@@ -100,7 +100,7 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js"></script>
 
 
-    <script src="{{URL::asset('assets/dist/js/highlight.pack.js')}}"></script>
+
     <script>
         $('button:not([type="submit"])').on('click', function (e) {
             var $this = $(this);
@@ -145,7 +145,7 @@
 
         $('div.alert').not('.alert-important').delay(3000).slideUp(300);
     </script>
-
+    <script src="{{URL::asset('assets/dist/js/highlight.pack.js')}}"></script>
     <script >hljs.initHighlightingOnLoad();</script>
     @yield('footer')
 </body>

@@ -2,25 +2,32 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-md-10 col-md-offset-1">
+            <div class="col-md-12">
 
                 <h2>
+                    <a href="/admin/tag">
+                        <i class="fa fa-fw fa-hand-o-left"></i>
+                    </a>
                     ID: {{$tag->id}}
                     &nbsp;&nbsp;&nbsp;
                     Tag: {{$tag->name}}
                     <a class="btn btn-lg" href="/admin/tag/{{$tag->id}}/edit"
                        style="padding:0px 4px;font-size:40px">
-                        <span class="glyphicon glyphicon-pencil"
+                        <span class="fa fa-fw fa-pencil"
                               style="position: absolute;top:40px; right: 0px;"></span>
                     </a>
                 </h2>
                 <h2>Questions:</h2>
 
                 {!! Form::open(['url' => "/admin/tag/operate/$tag->id"]) !!}
-                <div style="height:500px;overflow: auto">
+                <div class="col-md-10 col-md-offset-1">
                 @foreach($questions as $question)
+
+
                     <label class="checkbox ">
+
                         <input type="checkbox" data-toggle="checkbox" value={{$question->id}} name="question_id[]">
+
                         <a href="/admin/question/{{$question->id}}">
                             <p class="text-muted" style="overflow: hidden; text-overflow:ellipsis;white-space:nowrap;">
                                 <strong>{{$question->id}}</strong>
@@ -28,7 +35,7 @@
                                 {{$question->title}}
                             </p>
                         </a>
-                    </label>
+                        </label>
                 @endforeach
                 </div>
                 <div class="row form-horizontal">
