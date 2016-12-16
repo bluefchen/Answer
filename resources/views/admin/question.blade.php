@@ -53,7 +53,11 @@
             <div class="container col-lg-12 ">
                 <form method="POST" action="/admin/question/delete" accept-charset="UTF-8" >
                     {!! csrf_field() !!}
-                    <div class="form-group row " style="height: 500px;overflow: auto" >
+
+
+
+
+                    <div class="container form-group row "  >
                         @foreach($questions as $question)
 
                             <div class="col-md-10 col-md-offset-1">
@@ -82,11 +86,19 @@
 
                         @endforeach
                     </div>
-                    <div class="row col-md-10 col-md-offset-1">
-                        <button type="submit" class="btn btn-lg btn-primary">Delete</button>
+                    <div class="container row">
+                     <div class="row text-center col-md-5 col-md-offset-1 text-center">
+                        <button type="submit" class="btn btn-primary btn-block">Delete</button>
                     </div>
+                        <div class="container col-md-5 col-md-offset-1 text-center" >
+                            {!! $questions->links() !!}
+                        </div>
+                        </div>
+
 
                 </form>
+
+
 
             </div>
         </div>

@@ -24,7 +24,7 @@
                     <th>User</th>
                     <th>Email</th>
                     <th>Date</th>
-    
+
                 </tr>
                 @foreach( $users as $user)
                     <tr>

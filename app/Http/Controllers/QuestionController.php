@@ -31,8 +31,8 @@ class QuestionController extends Controller
      */
     public function index()
     {
-        $questions=Question::orderBy('id','dsec')->get();
-
+        $questions=Question::orderBy('id','dsec')->paginate(10);
+//        dd($questions);
         $sidearr=$this->sidearr;
         return view('admin.question',compact('sidearr','questions'));
     }
