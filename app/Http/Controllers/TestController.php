@@ -30,8 +30,14 @@ class TestController extends Controller
      */
     public function index()
     {
-        $tags = Tag::lists('name', 'id')->toArray();
+        $tags_all = Tag::all();
         $tags[1] = "范围不限";
+        foreach($tags_all as $tag)
+        {
+            if(count($tag->questions)!=0&&$tag->name!="Default")
+                $tags[$tag->id]=$tag->name;
+        }
+
         return view('test.index', compact('tags'));
     }
 

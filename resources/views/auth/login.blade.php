@@ -57,7 +57,26 @@
                                 <a class="btn btn-link" href="{{ url('/password/reset') }}">Forgot Your Password?</a>
                             </div>
                         </div>
+
+
+
+
                     </form>
+                    <div class="text-center">
+
+
+                            <a href="/auth/github">
+                                <div>
+                                    <img src="{{URL::asset('assets/dist/img/login/github.icon.png')}}" class="glyphicon glyphicon-plus" style="width:50px;height:50px"></img>
+                                </div>
+                            </a>
+
+
+
+
+                    </div>
+
+
                 </div>
             </div>
         </div>
