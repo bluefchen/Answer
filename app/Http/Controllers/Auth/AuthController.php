@@ -93,7 +93,7 @@ class AuthController extends Controller
         }
         $userInstance = User::where('email',$user->email)->firstOrFail();
         Auth::login($userInstance);
-        return redirect('/');
+        return back();//重定向响应到前一个位置
         
     }
 
