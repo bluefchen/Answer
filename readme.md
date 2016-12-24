@@ -1,29 +1,33 @@
 # PHP简单答题系统
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
 
-基于Laravel框架设计的一个PHP简单答题系统，可以登入登出、从数据库中读取题目进行测试，提交后会对答题情况做一个反馈。
+基于Laravel框架设计的一个PHP答题系统，可以实现：
+- 用户登录：可实现邮箱/github账户登录功能。
+- 答题测试：
+    - 题目有多种Tag可选，包括全选/Array/String/RegExp等，用户可以针对个人掌握情况进行选择。
+    - 包括多种题型（单选/双选/填空/判断/简答等）
+    - 一次测试可以选择多种题量
+    - 测试结束后会给出得分以及错题/答题记录
+    
+- 历史记录查询：
+    - 提供历次答题分值折线图，直观感受成绩进步。
+    - 提供历次答题错题/答题记录。
+ 
+- 后台管理：
+    - 后台多种题型/标签增删改查功能以及关系映射。
+    - 用户查看与管理
 
 ## System Requirements
 
 Laravel > 5.2.*
 
-## demo
+## Contact
+如有任何问题，请给我发送邮件：siluzhou_pku@163.com
 
-![](http://i.imgur.com/ZGvPccA.png)
+## Demo
 
 
-
-![](http://i.imgur.com/pUdyBOR.png)
-
-![](http://i.imgur.com/A171mA0.png)
-
-![](http://i.imgur.com/J5e08W3.png)
-
+答题系统测试链接：www.phpzhilu.cn （链接可能尚在备案中）欢迎注册使用！
 ## License
 
 本系统基于 [MIT 协议](http://opensource.org/licenses/MIT).
