@@ -62,6 +62,7 @@
 
 
                     </form>
+                    {{-- github登录有bug
                     <div class="text-center">
 
 
@@ -75,7 +76,7 @@
 
 
                     </div>
-
+                    --}}
 
                 </div>
             </div>

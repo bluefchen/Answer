@@ -4,7 +4,7 @@
 <div class="container">
     <div class="jumbotron">
         <h1>Welcome</h1>
-        <p>PHP自测系统</p>
+        <p>PHP自测平台</p>
         <p>点击上方的Test，开始答题吧</p>
 
     </div>
