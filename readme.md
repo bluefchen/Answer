@@ -27,7 +27,7 @@ Laravel > 5.2.*
 ## Demo
 
 
-答题系统测试链接：www.phpzhilu.cn （链接可能尚在备案中）欢迎注册使用！
+答题系统测试链接：www.phpzhilu.cn （链接可能尚在备案中）/101.200.55.119欢迎注册使用！
 ## License
 
 本系统基于 [MIT 协议](http://opensource.org/licenses/MIT).
