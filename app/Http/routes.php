@@ -38,3 +38,5 @@ Route::get('/test/{test_id}/alldetails', 'TestController@allDetail');
 Route::get('/test/{test_id}/{id}', 'TestController@show');
 
 Route::get('/history','HistoryController@index');
+
+Route::get('/contact','ContactController@index');

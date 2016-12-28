@@ -57,6 +57,7 @@
                 <ul class="nav navbar-nav">
                     <li><a href="{{ url('/test') }}">Test</a></li>
                     <li><a href="{{ url('/history') }}">History</a></li>
+                    <li><a href="{{ url('/contact') }}">Contact</a></li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
