@@ -33,7 +33,7 @@
         }
     </style>
 </head>
-<body id="app-layout" onload="prettyPrint()">
+<body id="app-layout" onload="prettyPrint() " style=" position:absolute;margin: 0; padding: 0;width:100%; height:100% ;">
     <nav class="navbar navbar-default navbar-static-top">
         <div class="container">
             <div class="navbar-header">

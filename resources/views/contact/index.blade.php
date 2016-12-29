@@ -1,35 +1,46 @@
 @extends('layouts.app')
 
 @section('content')
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font: 13px Helvetica, Arial; }
 
-        #messages { list-style-type: none; margin: 0; padding: 0; }
-        #messages li { padding: 5px 10px; }
-        #messages li:nth-child(odd) { background: #eee; }
-    </style>
 
-<div class="col-md-10 col-md-offset-1" style="border:1px dashed #000 ;background:#394; ">
+    <div class="row" style="height:inherit;">
+        <div class="col-md-10 col-md-offset-1" style="position:absolute;height:90%;border:3px solid #99cccc; ">
 
-    <ul id="messages"></ul>
-    <form action="" style=" background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%;">
-        <input id="m" autocomplete="off" />
-        <input type="submit" value="send">
-    </form>
-</div>
+            <div class="col-md-12"  style="height:85%;" >
+                <h4 class="blue">Contact Room</h4>
+                <ul id="messages"></ul>
+            </div>
 
-<script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
-<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
-<script>
-    var socket = io('http://localhost:3000');
-    $('form').submit(function(){
-        socket.emit('chat message', $('#m').val());
-        $('#m').val('');
-        return false;
-    });
-    socket.on('chat message', function(msg){
-        $('#messages').append($('<li>').text(msg));
-    });
-</script>
+            <div>
+                <form action="" class="form" >
+                    <div class="form-group">
+                        <textarea class="form-control " id="m"  rows="3"></textarea>
+                    </div>
+                    <div class="form-group text-right" style="position:relative;top:-70px; right:10px">
+                        <input type="submit" class="btn btn-primary btn-lg " value="   send    ">
+                    </div>
+
+                </form>
+            </div>
+
+
+
+        </div>
+    </div>
+
+
+    <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+    <script>
+        var socket = io('http://localhost:3000');
+        $('form').submit(function () {
+            socket.emit('chat message', $('#m').val());
+            $('#m').val('');
+            return false;
+        });
+        socket.on('chat message', function (msg) {
+            $('#messages').append($('<li>').text(msg));
+        });
+
+    </script>
 @endsection
