@@ -21,7 +21,7 @@ class HistoryController extends Controller
     public function index(Request $request)
     {
         $user=$request->user();
-        $tests=$user->tests()->where('point','>',-1)->get()->toArray();//只选取完整的测试。
+        $tests=$user->tests()->where('point','>',-1)->orderby('id','desc')->get()->toArray();//只选取完整的测试。
 
         if(count($tests)==0)
         {
