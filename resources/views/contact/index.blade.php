@@ -1,9 +1,19 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="full">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font: 13px Helvetica, Arial; }
+
+        #messages { list-style-type: none; margin: 0; padding: 0; }
+        #messages li { padding: 5px 10px; }
+        #messages li:nth-child(odd) { background: #eee; }
+    </style>
+
+<div class="col-md-10 col-md-offset-1" style="border:1px dashed #000 ;background:#394; ">
+
     <ul id="messages"></ul>
-    <form action="">
+    <form action="" style=" background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%;">
         <input id="m" autocomplete="off" />
         <input type="submit" value="send">
     </form>
