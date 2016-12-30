@@ -18,6 +18,8 @@
 
     <!--导入代码高亮：highlight.css-->
     <link href="{{URL::asset('assets/dist/styles/solarized-light.css')}}" rel="stylesheet">
+    <!--导入聊天气泡：bubble.css-->
+    <link href="{{URL::asset('assets/contact/bubble.css')}}" rel="stylesheet">
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
     <!--[if lt IE 9]>
     <script src="{{URL::asset('assets/dist/js/vendor/html5shiv.js')}}"></script>
