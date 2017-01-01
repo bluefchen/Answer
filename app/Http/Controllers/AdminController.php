@@ -11,7 +11,7 @@ use App\User;
 class AdminController extends Controller
 {
 
-    private $sidearr=[['1'],['0',['0','0']],['0']];
+    private $sidearr=[['1'],['0',['0','0']],['0'],['0']];
     /**
      * AdminController constructor.
      */
@@ -28,9 +28,6 @@ class AdminController extends Controller
      */
     public function index()
     {
-
-
-
         $sidearr=$this->sidearr;
         return view('admin.index',compact('sidearr'));
     }
@@ -41,6 +38,7 @@ class AdminController extends Controller
         $sidearr=$this->sidearr;
         $sidearr[0][0]=0;
         $sidearr[2][0]=1;
+        $sidearr[3][0]=0;
         $users=User::all()->toArray();
         return view('admin.users',compact('sidearr','users'));
         

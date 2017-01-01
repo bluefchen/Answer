@@ -28,6 +28,7 @@ Route::post('/admin/tag/operate/{id}','TagController@operate');
 Route::resource('/admin/question', 'QuestionController',['except' => ['destroy','create']]);
 Route::get('admin/question/create/{qtype}','QuestionController@create');
 Route::post('/admin/question/delete','QuestionController@delete');
+Route::get('admin/comment','CommentController@index');
 
 Route::get('/test', 'TestController@index');
 Route::post('/test', 'TestController@prepare');
@@ -40,3 +41,4 @@ Route::get('/test/{test_id}/{id}', 'TestController@show');
 Route::get('/history','HistoryController@index');
 
 Route::get('/contact','ContactController@index');
+Route::get('/contact/message','ContactController@message');

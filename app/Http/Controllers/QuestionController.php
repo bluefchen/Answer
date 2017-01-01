@@ -13,7 +13,7 @@ use App\Qtype;
 class QuestionController extends Controller
 {
 
-    private   $sidearr=[['0'],['1',['1','0']],['0']];
+    private   $sidearr=[['0'],['1',['1','0']],['0'],['0']];
 
     /**
      * QuestionController constructor.

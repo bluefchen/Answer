@@ -11,7 +11,7 @@ use App\Question;
 class TagController extends Controller
 {
 
-    private   $sidearr=[['0'],['1',['0','1']],['0']];
+    private   $sidearr=[['0'],['1',['0','1']],['0'],['0']];
 
     public function __construct()
     {

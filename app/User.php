@@ -36,6 +36,15 @@ class User extends Authenticatable
     }
 
 
+    /**
+     * 获取用户对应的评论
+     * 
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function comments()
+    {
+        return $this->hasMany('App\Comment');
+    }
 
 
 }

@@ -11,10 +11,13 @@
 </div>
 
 <footer class="footer navbar-fixed-bottom ">
-    <div class="col-md-6 container text-left">
+    <div class="col-md-4 container text-left">
         <p>If you have any questions, please email me: siluzhou_pku@163.com</p>
     </div>
-    <div class="col-md-6 container text-right">
+    <div class="col-md-4 container text-center">
+        <a href="http://www.miitbeian.gov.cn/">京ICP备16069617号</a>
+    </div>
+    <div class="col-md-4 container text-right">
         <a href="https://github.com/siluzhou/Answer">Click to view source</a>
     </div>
 </footer>

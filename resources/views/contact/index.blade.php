@@ -3,61 +3,78 @@
 @section('content')
 
 
-    <div class="row" style="height:inherit;">
-        <div class="col-md-8 col-md-offset-2" style="position:absolute;height:90%; background:#f0eded ">
+    <div class="row col-md-8 col-md-offset-2" style="position:relative;height:85%; background:#f0eded ">
+        <h4 class="blue">Contact Room (开发中...)</h4>
+        <div id="chat" class="col-md-12" style="height:70%;overflow:auto; position:absolute">
 
-            <div class="col-md-12" style="height:85%;">
-                <h4 class="blue">Contact Room</h4>
 
-                <div class="bubbleItem">     <!--左侧的泡泡-->
+            <div class="bubbleItem">     <!--左侧的泡泡-->
                     <span class="bubble leftBubble">
-                        欢迎来到Contact界面！<br />
-                        输入以下内容：<br/>
+                        欢迎来到Contact界面！<br/>
+                        输入对应数字，进入以下选项：<br/>
                         1:发表意见<br/>
                         2:题目答疑<br/>
                     <span class="bottomLevel"></span>
                     <span class="topLevel"></span>
                     </span>
-                </div>
-
-
-                <div id="messages2"></div>
-
             </div>
 
-            <div>
-                <form action="" class="form">
-                    <div class="form-group">
-                        <textarea class="form-control " id="m" rows="3"
-                                  style="border: 2px solid #57e6ca ;border-radius:15px"></textarea>
-                    </div>
-                    <div class="form-group text-right" style="position:relative;top:-70px; right:10px">
-                        <input type="submit" class="btn  btn-lg btn-primary" value="   send    ">
-                    </div>
+            <div id="msg"></div>
 
-                </form>
+        </div>
+
+        <div class="col-md-12 form-group" style=" position:absolute;bottom:0">
+            <input type="hidden" name="status" value=0 id="status"> {{--用于存储此时表单在第几级的状态--}}
+
+            <div class="form-group text-right" style="position:relative;top:115px;right:15px">
+                <input type="submit" class="btn  btn-lg btn-primary" value="send" onClick="getMessage()">
             </div>
+                <textarea class="form-control " id="message" rows="3"
+                          style="border: 2px solid #57e6ca ;border-radius:15px"></textarea>
 
 
         </div>
+
+
     </div>
 
+@endsection
 
-    <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
-    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+@section('footer')
+
     <script>
-        var socket = io('http://localhost:3000');
-        $('form').submit(function () {
-            socket.emit('chat message', $('#m').val());
-            $('#m').val('');
-            return false;
-        });
-        socket.on('chat message', function (msg) {
+        function getMessage() {
+            //获取输入指和指定状态
+            var command = $('#message').val();
+            $('#message').val('');
+            var status = $("#status").val();
+            var send = "<div class=\"bubbleItem clearfix\"><span class=\"bubble rightBubble\">" + command + "<span class=\"bottomLevel\"></span><span class=\"topLevel\"></span></span></div>";
+            $('#msg').append(send);
+            $('#chat').scrollTop($('#chat')[0].scrollHeight);
 
-            var rightbutton = "<div class=\"bubbleItem clearfix\"><span style=\"font-family: Arial, Helvetica, sans-serif;\"></span> <span class=\"bubble rightBubble\">" + msg + "<span class=\"bottomLevel\"></span><span class=\"topLevel\"></span> </span></div>";
-            $('#messages2').before(rightbutton);
-        });
+            $.ajax({
+                type: 'get',
+                url: '/contact/message',
+                data: {command: command, '_token': '{{csrf_token()}}', ss: status},//传送命令和状态
 
-        leftbubbon
+                success: function (data) {
+                    var receive = "\<div class=\"bubbleItem\"><span class=\"bubble leftBubble\">" + data.receive + "<span class=\"bottomLevel\"></span><span class=\"topLevel\"></span></span></div>";
+
+                    $("#msg").append(receive);
+                    $("#status").val(data.ss);//同时更新状态
+                    $('#chat').scrollTop($('#chat')[0].scrollHeight);
+                },
+                error: function () {
+                    alert("异常！");
+                }
+
+
+            });
+
+
+        }
+
     </script>
 @endsection
+
+

@@ -154,6 +154,11 @@ desired effect
                         <i class="fa fa-users"></i> <span>用户管理</span>
                     </a>
                 </li>
+                <li @if($sidearr[3][0]==1)class="active"@endif>
+                    <a href="/admin/comment">
+                        <i class="fa fa-users"></i> <span>评论管理</span>
+                    </a>
+                </li>
 
             </ul>
         </section>
