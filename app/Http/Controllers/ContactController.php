@@ -30,10 +30,22 @@ class ContactController extends Controller
      * @var array
      */
     private $map = [
-        "http://doc.phpleague.cn/lm/view?chr=Web_Page&child=Jquery" => ['jquery'],
-        "http://doc.phpleague.cn/lm/view?chr=Web_Page&child=html_CheatSheet" => ['table', 'form', '表单', '表格'],
-        "http://doc.phpleague.cn/lm/view?chr=phpStudy&child=Chapter6" => ['字符串', '字符', 'string'],
-        "http://doc.phpleague.cn/lm/view?chr=phpStudy&child=Chpater5" => ['数组', 'array']
+        "http://doc.phpleague.cn/lm/view?chr=Web_Page&child=Jquery" => ['jquery','ajax'],
+        "http://doc.phpleague.cn/lm/view?chr=Web_Page&child=html_CheatSheet" => ['html','table', 'form', '表单', '表格'],
+        "http://doc.phpleague.cn/lm/view?chr=phpStudy&child=Chapter1"=>['基础知识','print','var_dump','print_f','print','echo','include','require','include_once','require_once'],
+        "http://doc.phpleague.cn/lm/view?chr=phpStudy&child=Chapter2"=>['语言基础','常量','变量','局部变量','内存管理','$_GLOBALS','$_SERVER','$_GET','$_POST','$_FILES','$_COOKIE','$_SESSION','$_REQUEST','$_ENV'],
+        "http://doc.phpleague.cn/lm/view?chr=phpStudy&child=Chapter3"=>['流程控制','if','else','foreach','for','while','break','continue'],
+        "http://doc.phpleague.cn/lm/view?chr=phpStudy&child=Chapter4"=>['函数','参数','引用传递','返回值','匿名函数','闭包'],
+        "http://doc.phpleague.cn/lm/view?chr=phpStudy&child=Chpater5" => ['数组', 'array','key','current','each','reset','next','prev','range','compact','extract','explode','implode'],
+        "http://doc.phpleague.cn/lm/view?chr=phpStudy&child=Chapter6" => ['字符串', '字符', 'string','char','str','word','strpos',],
+        "http://doc.phpleague.cn/lm/view?chr=phpStudy&child=Chapter7"=>['正则表达式','regexp','定界符','匹配','贪婪匹配','捕获组','反向引用','pcre','preg'],
+        "http://doc.phpleague.cn/lm/view?chr=phpStudy&child=Chapter8"=>['时间与日期','时间戳','unix','date','time'],
+        "http://doc.phpleague.cn/lm/view?chr=phpStudy&child=Chapter9"=>['文件与目录','file','fopen','fgets','fwrite','readfile','fpassthru','fwrite','fclose','is_dir','unlink','copy','rename'],
+        "http://doc.phpleague.cn/lm/view?chr=phpStudy&child=Chapter10"=>['面向对象','类','接口','trait','class','interface','static','public','private','继承'],
+
+        "http://doc.phpleague.cn/lm/view?chr=phpStudy&child=Chapter11"=>['表单','get','post','按钮','文本框','密码框','隐藏框','文本域','下拉列表','头信息'],
+        "http://doc.phpleague.cn/lm/view?chr=phpStudy&child=Chapter13"=>['异常与错误','异常','错误','try','catch','exception','error'],
+        "http://doc.phpleague.cn/lm/view?chr=phpStudy&child=Chapter14"=>['PSR','命名空间','namespace','自动加载','代码规范']
     ];
 
     public function __construct()
@@ -84,7 +96,7 @@ class ContactController extends Controller
     {
         switch ($command) {
             case "1":
-                $receive = "您的每一份意见，都是我们改进的动力！<br />请输入您的意见<br/>输入0返回上一层";
+                $receive = "您的每一份意见，都是我前进的动力！<br />请输入您的意见<br/>输入0返回上一层";
                 $ss = 1;
                 break;
             case 2:

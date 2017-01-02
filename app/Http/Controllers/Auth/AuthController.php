@@ -84,15 +84,19 @@ class AuthController extends Controller
     {
         $user = Socialite::driver('github')->user();
 
-        //todo: github等其余社会账户如何存储的问题：如果多个社会账户均用一个email注册怎么办（email要求是不一样的）
-        if(!User::where('email',$user->email)->first()) {//如果该github_id不存在，则保存这个账户，email修改为可以相同？
+
+
+        if(!User::where('github_id',$user->id)->first()){//如果该github账号之前未曾登录，则新建账号。
             $userModel = new User;
+            $userModel->github_id = $user->id;
             $userModel->email = $user->email;
             $userModel->name = $user->nickname;
             $userModel->save();
         }
-        $userInstance = User::where('email',$user->email)->firstOrFail();
+
+        $userInstance = User::where('github_id',$user->id)->firstOrFail();
         Auth::login($userInstance);
+        echo $user->name.'登录成功!';
         return back();//重定向响应到前一个位置
         
     }

@@ -13,7 +13,7 @@ class CommentController extends Controller
     public function index()
     {
         $sidearr=$this->sidearr;
-        $comments=Comment::all()->toArray();
+        $comments=Comment::orderBy('created_at','desc')->get()->toArray();
         return view('admin.comments',compact('sidearr','comments'));
         
     }

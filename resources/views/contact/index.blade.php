@@ -4,16 +4,18 @@
 
 
     <div class="row col-md-8 col-md-offset-2" style="position:relative;height:85%; background:#f0eded ">
-        <h4 class="blue">Contact Room (开发中...)</h4>
+        <h4 class="blue">Online Customer Service</h4>
         <div id="chat" class="col-md-12" style="height:70%;overflow:auto; position:absolute">
 
 
             <div class="bubbleItem">     <!--左侧的泡泡-->
                     <span class="bubble leftBubble">
-                        欢迎来到Contact界面！<br/>
-                        输入对应数字，进入以下选项：<br/>
+                        欢迎您的来访~<br/>
+                        <br/>
+                        您可能关注以下相关问题：<br/>
                         1:发表意见<br/>
                         2:题目答疑<br/>
+                        请直接回复数字进行了解哦<br/>
                     <span class="bottomLevel"></span>
                     <span class="topLevel"></span>
                     </span>

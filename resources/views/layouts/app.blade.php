@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <meta property="wb:webmaster" content="04d25093ca20dc42" />
     <title>PHP之路</title>
 
     <!-- Loading Bootstrap -->
