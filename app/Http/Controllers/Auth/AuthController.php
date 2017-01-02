@@ -97,7 +97,7 @@ class AuthController extends Controller
         $userInstance = User::where('github_id',$user->id)->firstOrFail();
         Auth::login($userInstance);
         echo $user->name.'登录成功!';
-        return back();//重定向响应到前一个位置
+        return redirect('/');//重定向响应到前一个位置
         
     }
 
