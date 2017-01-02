@@ -62,21 +62,33 @@
 
 
                     </form>
-                    {{-- github登录有bug
-                    <div class="text-center">
 
 
-                            <a href="/auth/github">
-                                <div>
-                                    <img src="{{URL::asset('assets/dist/img/login/github.icon.png')}}" class="glyphicon glyphicon-plus" style="width:50px;height:50px"></img>
-                                </div>
-                            </a>
+                    <div >
+
+                        <div class="col-md-6">
+                           <p class="text-muted text-center">
+
+                                   第三方账户登录：
+
+
+                           </p>
+                        </div>
+
+                       <div class="col-md-6">
+                           <a href="/auth/github">
+                               <div>
+                                   <img src="{{URL::asset('assets/dist/img/login/github.icon.png')}}" class="glyphicon glyphicon-plus" style="width:50px;height:50px">
+                               </div>
+                           </a>
+                       </div>
+
 
 
 
 
                     </div>
-                    --}}
+
 
                 </div>
             </div>
