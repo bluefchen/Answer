@@ -42,3 +42,6 @@ Route::get('/history','HistoryController@index');
 
 Route::get('/contact','ContactController@index');
 Route::get('/contact/message','ContactController@message');
+
+
+Route::resource('api/v1', 'WeixinController');
